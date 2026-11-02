@@ -4,628 +4,681 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Administrador de fincas en Palma | ALF Administración de Fincas</title>
-<meta name="description" content="Administración de fincas y comunidades de propietarios en Palma y toda Mallorca. Administrador de fincas colegiado: cuentas, juntas, averías, obras e intermediación inmobiliaria.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
-<style>
-/* Layout: el rombo del logo como baldosa hidráulica. Un mosaico vivo abre la página y el mismo rombo cuenta viviendas en la calculadora y en el panel de servicios. Fondo claro, azul ALF dominante, amarillo como acento puntual. */
+<meta name="description" content="Administración de comunidades de propietarios en Palma y Mallorca: cuentas, juntas y actas, averías, obras e ITE, seguros e intermediación inmobiliaria. Administrador de fincas colegiado.">
+<link rel="canonical" href="https://alfadministraciones.es/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,6 94,50 50,94 6,50' fill='%230F52A2'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0F52A2">
+<meta property="og:type" content="website"><meta property="og:locale" content="es_ES"><meta property="og:site_name" content="ALF Administración de Fincas">
+<meta property="og:title" content="Administrador de fincas en Palma | ALF"><meta property="og:description" content="Administración de comunidades de propietarios en Palma y Mallorca: cuentas, juntas y actas, averías, obras e ITE, seguros e intermediación inmobiliaria. Administrador de fincas colegiado.">
+<meta property="og:url" content="https://alfadministraciones.es/"><meta property="og:image" content="https://alfadministraciones.es/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "ALF Administración de Fincas", "url": "https://alfadministraciones.es/", "image": "https://alfadministraciones.es/og.png", "telephone": "+34 971 75 94 53", "email": "recepcion@alfmallorca.com", "taxID": "B27621564", "address": {"@type": "PostalAddress", "streetAddress": "Carrer de Sant Josep de la Muntanya, 15", "postalCode": "07010", "addressLocality": "Palma", "addressRegion": "Illes Balears", "addressCountry": "ES"}, "description": "Administración de comunidades de propietarios en Palma y Mallorca: cuentas, juntas y actas, averías, obras e ITE, seguros e intermediación inmobiliaria. Administrador de fincas colegiado."}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}[hidden]{display:none!important}/* Layout: láminas de plano técnico sobre papel cuadriculado; rejilla de 12 columnas, cajetín y cotas como sistema */
 :root{
-  --night:#F4F7FB; --night-2:#FFFFFF; --panel:#EAF0F8; --panel-2:#E1EAF6; --line:#D7E0EC;
-  --ink:#0B1830; --muted:#52627A; --dim:#7A8AA3;
-  --alf:#0B52A2; --alf-hi:#2F7BE0;
-  --lamp:#FFC64A; --lamp-glow:rgba(255,198,74,.5); --lamp-ink:#2A1C00;
-  --paper:#FFFFFF; --paper-ink:#0B1830; --paper-muted:#52627A; --paper-line:#D7E0EC;
-  --ok:#1E8F5A;
-  --shadow:0 1px 2px rgba(11,24,48,.05),0 12px 32px -18px rgba(11,24,48,.25);
-  --f-display:"Manrope","Helvetica Neue",Arial,sans-serif;
-  --f-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
-  --r:14px; --wrap:1220px;
-  color-scheme:light;
+  --color-bg:#F7F8F5;      /* papel */
+  --color-surface:#FFFFFF;
+  --color-text:#0B1626;    /* tinta */
+  --color-muted:#556070;
+  --color-primary:#0F52A2; /* azul ALF */
+  --color-accent:#C93A20;  /* rojo de cota (texto) */
+  --color-cota:#E0452B;    /* rojo de cota (trazos) */
+  --color-border:#D3D8DE;
+  --grid:rgba(15,82,162,.07);
+  --grid-major:rgba(15,82,162,.11);
+  --pri-bg:#0F52A2;--pri-fg:#FFFFFF;
+  --logo:#0F52A2;
+  --f-top:#FFFFFF;--f-l:#EEF1F5;--f-r:#DCE3EB;--win:#CBD8E8;
+  --sel-l:#D3E2F5;--sel-r:#BCD1EE;--sel-win:#0F52A2;
+  --ink-bg:#0B1626;--ink-fg:#EAF0F8;--ink-mute:#9FB0C8;--ink-line:rgba(234,240,248,.16);--ink-hi:#7FB0F5;
+  --font-display:"Familjen Grotesk","Helvetica Neue",Arial,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --ease:cubic-bezier(.2,.8,.2,1);
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--night);color:var(--ink);font-family:var(--f-body);font-size:1rem;line-height:1.6;-webkit-font-smoothing:antialiased}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--night)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --color-bg:#0B1F3D;--color-surface:#0F284C;--color-text:#EAF0F8;--color-muted:#A9B8CE;--color-primary:#8DB6F2;--color-accent:#FF8B70;--color-cota:#FF7A5C;--color-border:rgba(234,240,248,.18);
+  --grid:rgba(234,240,248,.05);--grid-major:rgba(234,240,248,.09);--pri-bg:#EAF0F8;--pri-fg:#0B1F3D;--logo:#3D7BD6;
+  --f-top:#14335F;--f-l:#102C55;--f-r:#0C2449;--win:#1D4277;--sel-l:#1E4D8F;--sel-r:#1A447F;--sel-win:#8DB6F2;
+  --ink-bg:#061328;--ink-fg:#EAF0F8;--ink-mute:#9FB0C8;--ink-line:rgba(234,240,248,.16);--ink-hi:#8DB6F2;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --color-bg:#0B1F3D;--color-surface:#0F284C;--color-text:#EAF0F8;--color-muted:#A9B8CE;--color-primary:#8DB6F2;--color-accent:#FF8B70;--color-cota:#FF7A5C;--color-border:rgba(234,240,248,.18);
+  --grid:rgba(234,240,248,.05);--grid-major:rgba(234,240,248,.09);--pri-bg:#EAF0F8;--pri-fg:#0B1F3D;--logo:#3D7BD6;
+  --f-top:#14335F;--f-l:#102C55;--f-r:#0C2449;--win:#1D4277;--sel-l:#1E4D8F;--sel-r:#1A447F;--sel-win:#8DB6F2;
+  --ink-bg:#061328;--ink-fg:#EAF0F8;--ink-mute:#9FB0C8;--ink-line:rgba(234,240,248,.16);--ink-hi:#8DB6F2;color-scheme:dark}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background-color:var(--color-bg);color:var(--color-text);font-family:var(--font-display);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased;
+  background-image:linear-gradient(var(--grid-major) 1px,transparent 1px),linear-gradient(90deg,var(--grid-major) 1px,transparent 1px),linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:120px 120px,120px 120px,24px 24px,24px 24px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--color-bg)}
+h1,h2,h3,p{margin:0}
+.defs{position:absolute;width:0;height:0}
+.wrap{max-width:1320px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media(min-width:768px){.wrap{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
+.mono{font-family:var(--font-mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.skip{position:absolute;left:-999px;top:8px;z-index:100;background:var(--color-text);color:var(--color-bg);padding:10px 14px}
+.skip:focus{left:16px}
+:focus-visible{outline:2px solid var(--color-cota);outline-offset:3px}
+::selection{background:var(--color-primary);color:var(--color-bg)}
 a{color:inherit}
-h1,h2,h3{font-family:var(--f-display);margin:0;line-height:1.02;text-wrap:balance;letter-spacing:-.02em}
-h2{font-size:clamp(1.9rem,4.2vw,3rem);font-weight:800;letter-spacing:-.03em}
-h3{font-size:1.2rem;font-weight:700;letter-spacing:-.01em}
-p{margin:0}
-.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.tag{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--alf)}
-.muted{color:var(--muted)}
-section{padding-block:clamp(4rem,9vw,7rem)}
-.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:1.5rem 3rem;margin-bottom:3rem}
-.head > div{display:grid;gap:1rem;max-width:40rem}
-.head p.muted{max-width:34rem;font-size:1.06rem}
-:focus-visible{outline:3px solid var(--alf-hi);outline-offset:3px;border-radius:4px}
 
-.btn{display:inline-flex;align-items:center;gap:.6rem;font:600 1rem var(--f-body);text-decoration:none;padding:.9rem 1.35rem;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .2s}
-.btn:hover{transform:translateY(-2px)}
-.btn-lamp{background:var(--alf);color:#fff;box-shadow:0 8px 20px -10px rgba(11,82,162,.7)}
-.btn-lamp:hover{background:#0A4890}
-.btn-amber{background:var(--lamp);color:var(--lamp-ink)}
-.btn-amber:hover{box-shadow:0 0 28px var(--lamp-glow)}
-.btn-line{border-color:var(--line);color:var(--ink);background:var(--night-2);box-shadow:var(--shadow)}
-.btn-blue{background:var(--alf);color:#fff}
-.btn svg{width:1.05em;height:1.05em}
+/* Botones */
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 16px/1 var(--font-display);padding:15px 20px;border:1.5px solid var(--color-text);border-radius:0;text-decoration:none;cursor:pointer;background:transparent;color:var(--color-text);position:relative;transition:background .25s,color .25s,border-color .25s,transform .25s var(--ease)}
+.btn .arr{transition:transform .3s var(--ease)}
+.btn:hover .arr{transform:translateX(5px)}
+.btn:active{transform:translateY(1px)}
+.btn-pri{background:var(--pri-bg);color:var(--pri-fg);border-color:var(--pri-bg)}
+.btn-pri:hover{background:var(--color-text);border-color:var(--color-text);color:var(--color-bg)}
+.btn-ghost:hover{background:var(--color-text);color:var(--color-bg)}
+.btn-sm{padding:10px 14px;font-size:14px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
 
-/* Barra superior */
-.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:color-mix(in srgb,#fff 85%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;gap:1.4rem;padding-block:.75rem}
-.logo{display:flex;align-items:center;gap:.7rem;text-decoration:none;margin-right:auto}
-.logo svg{width:42px;height:42px;flex:none}
-.logo b{display:block;font:italic 800 1.15rem/1 var(--f-display);letter-spacing:.03em;color:var(--alf)}
-.logo small{display:block;font-size:.72rem;color:var(--muted);font-style:italic;margin-top:2px}
-.nav{display:flex;gap:.2rem}
-.nav a{text-decoration:none;font-size:.9rem;color:var(--muted);padding:.4rem .75rem;border-radius:999px}
-.nav a:hover{color:var(--ink);background:var(--panel)}
-.top .btn{padding:.55rem 1rem;font-size:.9rem}
-.mbtn{display:none;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:.45rem .9rem;font:600 .85rem var(--f-body);cursor:pointer}
-@media (max-width:980px){
-  .mbtn{display:block}.top .btn{display:none}
-  .nav{position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--night-2);border-bottom:1px solid var(--line);padding:.6rem max(16px,env(safe-area-inset-right,0px)) 1rem max(16px,env(safe-area-inset-left,0px));display:none}
-  .nav.open{display:flex}
+/* Barra */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--color-bg);border-bottom:1px solid transparent;transition:border-color .3s}
+.bar.on{border-bottom-color:var(--color-border)}
+.bar-in{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:12px;max-width:1320px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media(min-width:768px){.bar-in{padding-left:max(40px,env(safe-area-inset-left,0px));padding-right:max(40px,env(safe-area-inset-right,0px))}}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
+.brand svg{display:block}
+.brand-t{display:flex;flex-direction:column;line-height:1.05;color:var(--logo)}
+.brand-t b{font:italic 700 18px/1 Arial,Helvetica,sans-serif}
+.brand-t span{font:italic 700 11px/1.3 Arial,Helvetica,sans-serif}
+.sheet{display:none;align-items:baseline;gap:6px;color:var(--color-muted)}
+.sheet b{color:var(--color-cota);font-weight:500}
+.sheet-n{color:var(--color-text);margin-left:10px;padding-left:10px;border-left:1px solid var(--color-border)}
+@media(min-width:980px){.sheet{display:flex}}
+.bar-act{display:flex;align-items:center;gap:10px}
+.tel{display:none;color:var(--color-text);font-size:13px}
+@media(min-width:720px){.tel{display:inline}}
+@media(max-width:420px){.bar-act .btn-pri{display:none}}
+
+/* Índice */
+.idx ol{list-style:none;margin:0;padding:0}
+.idx a{text-decoration:none;display:flex;align-items:center;gap:12px}
+@media(min-width:1180px){
+  .idx-btn{display:none}
+  .idx{position:fixed;right:max(18px,env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%);z-index:40}
+  .idx ol{display:grid;gap:4px;justify-items:end}
+  .idx a{flex-direction:row-reverse;padding:5px 0}
+  .idx a .mono{width:30px;height:30px;display:grid;place-items:center;border:1px solid var(--color-border);background:var(--color-bg);font-size:11px;transition:background .25s,color .25s,border-color .25s}
+  .idx a span:last-child{font-size:14px;opacity:0;transform:translateX(6px);transition:opacity .25s,transform .25s;background:var(--color-bg);padding:2px 6px;white-space:nowrap}
+  .idx a:hover span:last-child,.idx a:focus-visible span:last-child{opacity:1;transform:none}
+  .idx a.cur .mono{background:var(--color-cota);border-color:var(--color-cota);color:#fff}
 }
+@media(max-width:1179px){
+  .idx{position:fixed;left:0;right:0;top:calc(64px + env(safe-area-inset-top,0px));z-index:49;background:var(--color-bg);border-bottom:1px solid var(--color-text);padding-block:8px 16px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:none}
+  .idx.open{display:block}
+  .idx a{padding:12px 0;border-bottom:1px solid var(--color-border);font-size:20px;font-weight:600}
+  .idx a .mono{color:var(--color-cota);width:34px}
+  .idx a.cur{color:var(--color-primary)}
+}
+
+/* Láminas */
+.lam{padding-block:clamp(64px,9vw,128px);position:relative}
+#inicio{padding-block:clamp(28px,5vw,64px) clamp(56px,7vw,96px)}
+.tag{display:flex;align-items:center;gap:12px;color:var(--color-muted);margin-bottom:22px}
+.tag span{color:var(--color-cota);border:1px solid currentColor;padding:3px 7px}
+.h1{font-weight:700;font-size:clamp(44px,7.6vw,122px);line-height:.94;letter-spacing:-.035em;text-wrap:balance}
+.u{position:relative;color:var(--color-primary);white-space:nowrap}
+.u::after{content:"";position:absolute;left:0;right:0;bottom:-.08em;height:10px;border-left:1.5px solid var(--color-cota);border-right:1.5px solid var(--color-cota);background:linear-gradient(var(--color-cota),var(--color-cota)) center/100% 1.5px no-repeat}
+.h2{font-weight:700;font-size:clamp(34px,4.8vw,68px);line-height:1;letter-spacing:-.03em;text-wrap:balance;max-width:18ch}
+.sub{color:var(--color-muted);max-width:52ch;margin-top:18px}
+.lam-h{display:grid;margin-bottom:44px}
+@media(min-width:1024px){.lam-h{grid-template-columns:repeat(12,1fr);column-gap:24px}.lam-h .tag{grid-column:1/-1}.lam-h .h2{grid-column:1/8}.lam-h .sub{grid-column:8/13;align-self:end;margin-top:0}}
 
 /* Hero */
-.hero{padding-block:clamp(2.5rem,6vw,4.5rem) 0;position:relative;overflow:hidden}
-.sky{position:absolute;inset:0;background:radial-gradient(55% 60% at 80% 20%,rgba(47,123,224,.16),transparent 70%),radial-gradient(circle,rgba(11,82,162,.10) 1px,transparent 1.5px) 0 0/22px 22px;pointer-events:none;-webkit-mask-image:linear-gradient(#000 60%,transparent);mask-image:linear-gradient(#000 60%,transparent)}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:end;position:relative}
-.hero-copy{padding-bottom:4rem;min-width:0}
-.hero h1{font-size:clamp(2.5rem,6.6vw,5.2rem);font-weight:800;line-height:1;letter-spacing:-.045em}
-.hero h1 span{display:block}
-.hero h1 .lit{color:var(--alf);width:fit-content;background:linear-gradient(transparent 64%,var(--lamp) 64%,var(--lamp) 92%,transparent 92%)}
-.hero .intro{font-size:1.12rem;color:var(--muted);max-width:33rem;margin-top:1.6rem}
-.hero .acts{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
-.addr{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;margin-top:2.2rem;font-family:var(--f-mono);font-size:.8rem;color:var(--muted)}
-.addr span::before{content:"◆ ";color:var(--alf-hi)}
+.hero-top{display:grid;gap:26px;margin-bottom:clamp(32px,4vw,52px)}
+@media(min-width:1024px){.hero-top{grid-template-columns:repeat(12,1fr);gap:24px;align-items:end}.h1{grid-column:1/9}.hero-side{grid-column:9/13}}
+.lede{max-width:46ch;font-size:clamp(17px,1.3vw,19px)}
+.ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.sheetbox{position:relative;border:1.5px solid var(--color-text);background:color-mix(in srgb,var(--color-surface) 70%,transparent)}
+.corner{position:absolute;width:14px;height:14px;border-color:var(--color-cota);border-style:solid;border-width:0}
+.tl{top:-8px;left:-8px;border-top-width:1.5px;border-left-width:1.5px}.tr{top:-8px;right:-8px;border-top-width:1.5px;border-right-width:1.5px}
+.bl{bottom:-8px;left:-8px;border-bottom-width:1.5px;border-left-width:1.5px}.br{bottom:-8px;right:-8px;border-bottom-width:1.5px;border-right-width:1.5px}
+.sheet-grid{display:grid;gap:8px}
+@media(min-width:960px){.sheet-grid{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}}
+.draw{margin:0;padding:18px 18px 10px;min-width:0;display:flex;flex-direction:column;align-items:center}
+.bld{width:100%;max-width:470px;height:auto;display:block;overflow:visible}
+.draw-cap{color:var(--color-muted);font-size:11px;margin-top:6px;text-align:center}
+.floors-ui{padding:22px 18px 18px;border-top:1px solid var(--color-border);min-width:0;display:flex;flex-direction:column}
+@media(min-width:960px){.floors-ui{border-top:0;border-left:1px solid var(--color-border);padding:28px 28px 120px}}
+.kicker{color:var(--color-muted);margin-bottom:14px}
+.flist{list-style:none;margin:0;padding:0;border-top:1px solid var(--color-text)}
+.flist li{border-bottom:1px solid var(--color-border)}
+.frow{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:96px minmax(0,1fr) 16px;align-items:center;gap:12px;padding:12px 10px;cursor:pointer;transition:background .25s,color .25s}
+.frow::after{content:"";width:9px;height:9px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(-45deg);transition:transform .3s var(--ease)}
+.frow:hover{background:color-mix(in srgb,var(--color-primary) 9%,transparent)}
+.frow:focus-visible{outline:2px solid var(--color-cota);outline-offset:-2px}
+.lvl{color:var(--color-cota);font-size:11px}
+.fname{font-weight:600;font-size:clamp(18px,1.5vw,21px);line-height:1.2}
+.flist li.sel .frow{background:var(--pri-bg);color:var(--pri-fg)}
+.flist li.sel .lvl{color:inherit;opacity:.8}
+.flist li.sel .frow::after{transform:rotate(45deg)}
+.fdet{display:none;padding:14px 10px 18px 118px}
+.fdet p{font-size:16.5px;color:var(--color-text);max-width:44ch}
+.flist li.sel .fdet{display:block;animation:fadeup .4s var(--ease)}
+@media(max-width:520px){.frow{grid-template-columns:78px minmax(0,1fr) 16px}.fdet{padding-left:10px}}
+@keyframes fadeup{from{opacity:0;transform:translateY(6px)}}
+.cajetin{border-collapse:collapse;font-size:11px}
+.sheetbox .cajetin{display:none}
+@media(min-width:960px){.sheetbox .cajetin{display:table;position:absolute;right:-1.5px;bottom:-1.5px;background:var(--color-surface);border:1.5px solid var(--color-text)}}
+.cajetin th,.cajetin td{border:1px solid var(--color-border);padding:5px 10px;text-align:left;font-weight:400}
+.cajetin th{color:var(--color-muted)}
 
-.stage{position:relative;justify-self:center;width:min(480px,100%);aspect-ratio:1;max-width:100%;margin-bottom:3rem}
-.mosaic{position:absolute;inset:13%;display:grid;grid-template-columns:repeat(6,1fr);gap:6px;transform:rotate(45deg)}
-.tile-r{border-radius:4px;background:var(--panel-2);position:relative;transition:background .9s,box-shadow .9s}
-.tile-r.b{background:var(--alf)}
-.tile-r.d{background:#08407F}
-.tile-r.l{background:#CFE0F6}
-.tile-r.a{background:var(--lamp)}
-.tile-r.o{background:transparent;box-shadow:inset 0 0 0 2px var(--alf)}
-.tile-r.i::after{content:"";position:absolute;inset:26%;background:var(--lamp);border-radius:2px}
-.tile-r.w::after{content:"";position:absolute;inset:22%;border:2px solid #fff;border-radius:2px}
-.tile-r.w{background:var(--alf)}
-.tile-r.h{background:transparent}
-.stage .core{position:absolute;left:50%;top:50%;width:34%;aspect-ratio:1;transform:translate(-50%,-50%);filter:drop-shadow(0 18px 30px rgba(11,82,162,.35))}
-.stage .core svg{width:100%;height:100%}
-.ficha{position:absolute;right:-2%;bottom:-6%;width:min(270px,62%);background:rgba(255,255,255,.93);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 50px -20px rgba(11,24,48,.35);padding:14px 16px;font-size:.82rem}
-.ficha header{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:6px}
-.ficha header b{font:800 .9rem var(--f-display);letter-spacing:-.01em}
-.ficha header small{font:500 .62rem var(--f-mono);color:var(--dim);text-transform:uppercase;letter-spacing:.08em}
-.ficha ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
-.ficha li{display:flex;justify-content:space-between;gap:.6rem;padding:4px 0;color:var(--muted)}
-.ficha li span:last-child{font-weight:600;color:var(--ink);white-space:nowrap;display:flex;align-items:center;gap:.4rem}
-.ficha .dot{width:7px;height:7px;transform:rotate(45deg);background:var(--ok);display:inline-block}
-.ficha .dot.am{background:var(--lamp);animation:blink 1.4s infinite}
-.ficha-tag{position:absolute;left:0;top:6%;background:var(--alf);color:#fff;font:600 .72rem var(--f-body);padding:.4rem .75rem;border-radius:999px;box-shadow:var(--shadow)}
-@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-copy{padding-bottom:1rem}.stage{width:min(380px,100%)}.ficha{right:0}}
+/* Edificio */
+.bld .f-top{fill:var(--f-top)}.bld .f-l{fill:var(--f-l)}.bld .f-r{fill:var(--f-r)}
+.bld polygon{stroke:var(--color-text);stroke-width:1;stroke-linejoin:round}
+.bld .win{fill:var(--win);stroke-width:.7}
+.bld .door{fill:var(--color-primary);stroke-width:.8}
+.bld .mull{stroke:var(--f-top);stroke-width:1}
+.bld .bal{stroke:var(--color-text);stroke-width:1.6}
+.bld .slab{stroke:var(--color-text);stroke-width:1.8}
+.bld .pl{stroke:var(--color-primary);stroke-width:1.2}
+.bld .pl-t{stroke-width:.7}.bld .pl-s{stroke-width:.6}
+.bld .pl-p{fill:var(--color-text)}
+.bld .solar{fill:var(--win);stroke-width:.6}
+.bld .ant{stroke:var(--color-text);stroke-width:1.2}
+.bld .cota{stroke:var(--color-cota);stroke-width:1}
+.bld .cota-d{stroke:var(--color-cota);stroke-width:.6;stroke-dasharray:3 3;opacity:.6}
+.bld .cota-t{fill:var(--color-accent);font:500 11px var(--font-mono)}
+.bld .lv.sel .cota-t{font-weight:700}
+.bld .lv{transition:transform .7s var(--ease)}
+.bld .fl{cursor:pointer;transition:transform .7s var(--ease)}
+.bld .fl .plan{opacity:.55;transition:opacity .4s}
+.bld .fl.sel .plan{opacity:1}
+.bld .fl.sel .f-l{fill:var(--sel-l)}.bld .fl.sel .f-r{fill:var(--sel-r)}
+.bld .fl.sel .win{fill:var(--sel-win)}
+.bld .fl.hov:not(.sel) .f-l,.bld .fl.hov:not(.sel) .f-r{fill:var(--sel-l)}
+.bld.intro polygon[pathLength]{stroke-dasharray:1;stroke-dashoffset:1;fill-opacity:0;animation:draw 1.1s var(--ease) forwards,fillin .6s ease forwards}
+.bld.intro .fl[data-i="1"] polygon{animation-delay:.08s,.9s}.bld.intro .fl[data-i="2"] polygon{animation-delay:.16s,.98s}.bld.intro .fl[data-i="3"] polygon{animation-delay:.24s,1.06s}.bld.intro .fl[data-i="4"] polygon{animation-delay:.32s,1.14s}.bld.intro .fl[data-i="5"] polygon{animation-delay:.4s,1.22s}.bld.intro .fl[data-i="6"] polygon{animation-delay:.48s,1.3s}
+.bld.intro .fl[data-i="0"] polygon{animation-delay:0s,.82s}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fillin{to{fill-opacity:1}}
 
-/* Municipios */
-.ribbon{border-block:1px solid var(--line);background:var(--alf);overflow:hidden}
-.ribbon-track{display:flex;gap:2rem;width:max-content;padding-block:.9rem;animation:run 46s linear infinite;font:700 .95rem var(--f-display);color:#DCE8F8;text-transform:uppercase;letter-spacing:.08em}
-.ribbon-track span::after{content:"◆";margin-left:2rem;color:var(--lamp);font-size:.7em;vertical-align:middle}
-@keyframes run{to{transform:translateX(-50%)}}
+/* Calendario */
+.gantt-wrap{overflow-x:auto;border:1.5px solid var(--color-text);background:var(--color-surface);-webkit-overflow-scrolling:touch}
+.gantt{position:relative;min-width:820px}
+.g-row,.g-cols{display:grid;grid-template-columns:280px repeat(12,minmax(0,1fr));align-items:center}
+.g-cols{position:absolute;inset:0;pointer-events:none}
+.g-cols span{height:100%;border-left:1px solid var(--color-border)}
+.g-cols span:first-child{border-left:0}
+.g-cols span.now{border-left:1.5px solid var(--color-cota);position:relative}
+.g-cols span.now::before{content:"Hoy";position:absolute;bottom:6px;left:4px;font:500 10px var(--font-mono);color:var(--color-accent);text-transform:uppercase}
+.g-row{min-height:52px;border-bottom:1px solid var(--color-border);position:relative}
+.g-row:last-child{border-bottom:0}
+@media(max-width:700px){.gantt{min-width:680px}.g-row,.g-cols{grid-template-columns:180px repeat(12,minmax(0,1fr))}.g-l{font-size:14px;padding:10px 12px}}
+.g-head{min-height:40px;border-bottom:1.5px solid var(--color-text)}
+.g-head span{font:500 11px var(--font-mono);text-transform:uppercase;letter-spacing:.04em;color:var(--color-muted);padding-left:8px}
+.g-l{padding:10px 16px;font-size:15.5px;font-weight:600;line-height:1.25}
+.law{font:400 10.5px var(--font-mono);color:var(--color-accent);font-style:normal;text-transform:uppercase;margin-left:4px;white-space:nowrap}
+.g-b{height:12px;background:var(--color-primary);margin-inline:6px;font-size:0;color:transparent;position:relative;transform-origin:left;transition:transform .9s var(--ease)}
+.g-m{height:14px;width:14px;justify-self:center;margin:0;transform:rotate(45deg);background:var(--color-cota)}
+.g-short{width:28%;justify-self:end;margin-inline:0 6px}
+.g-start{justify-self:start;margin-inline:6px 0}
+.g-dash{height:0;border-top:2px dashed var(--color-primary);background:none}
+.g-red{height:0;border-top:2px solid var(--color-cota);background:none}
+.g-red::before,.g-red::after{content:"";position:absolute;top:-7px;height:12px;border-left:2px solid var(--color-cota)}
+.g-red::before{left:0}.g-red::after{right:0}
+.gantt.pre .g-b:not(.g-m){transform:scaleX(.001)}
+.g-hint{display:block;margin-top:10px;color:var(--color-muted);font-size:11px}
+@media(min-width:900px){.g-hint{display:none}}
 
-/* Panel de servicios */
-.console{display:grid;grid-template-columns:320px 1fr;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--night-2);box-shadow:var(--shadow)}
-.svc-list{display:flex;flex-direction:column;border-right:1px solid var(--line);padding:.6rem;background:var(--night)}
-.svc-list button{all:unset;cursor:pointer;display:flex;align-items:center;gap:.8rem;padding:.8rem .9rem;border-radius:10px;font-weight:600;color:var(--muted)}
-.svc-list button i{font:normal 500 .7rem var(--f-mono);color:var(--dim);width:2.2rem}
-.svc-list button:hover{background:var(--panel);color:var(--ink)}
-.svc-list button[aria-selected="true"]{background:#fff;color:var(--alf);box-shadow:inset 3px 0 0 var(--alf),var(--shadow)}
-.svc-list button[aria-selected="true"] i{color:var(--alf)}
-.svc-list button:focus-visible{outline:2px solid var(--lamp)}
-.svc-detail{padding:clamp(1.5rem,4vw,3rem);display:grid;grid-template-columns:1fr 200px;gap:2rem;align-items:start;min-width:0}
-.svc-detail h3{font-size:clamp(1.7rem,3vw,2.3rem);font-weight:800;letter-spacing:-.03em}
-.svc-detail .desc{color:var(--muted);font-size:1.08rem;margin-top:1rem;max-width:36rem}
-.svc-detail ul{list-style:none;padding:0;margin:1.6rem 0 0;display:grid;gap:.6rem}
-.svc-detail li{display:flex;gap:.7rem;align-items:baseline}
-.svc-detail li::before{content:"";width:8px;height:8px;background:var(--lamp);transform:rotate(45deg) translateY(-2px);flex:none}
-.law{display:inline-block;margin-top:1.6rem;font:500 .78rem var(--f-mono);color:var(--alf);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:.3rem .8rem}
-.win{aspect-ratio:1;max-width:100%;background:var(--panel-2);border-radius:3px;transform:rotate(45deg) scale(.7);transition:background .4s,transform .4s}
-.win.on{background:var(--alf);transform:rotate(45deg) scale(.78)}
-.mini{background:var(--night);border:1px solid var(--line);border-radius:12px;padding:18px;display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
-.mini .win{transition-delay:calc(var(--d) * 40ms)}
-.mini-cap{grid-column:1/-1;font:500 .7rem var(--f-mono);color:var(--muted);margin-top:6px;text-align:center}
-@media (max-width:900px){
-  .console{grid-template-columns:1fr}
-  .svc-list{flex-direction:row;overflow-x:auto;border-right:none;border-bottom:1px solid var(--line);scrollbar-width:thin}
-  .svc-list button{white-space:nowrap}
-  .svc-list button i{display:none}
-  .svc-list button[aria-selected="true"]{box-shadow:inset 0 -3px 0 var(--lamp)}
-  .svc-detail{grid-template-columns:1fr}.mini{max-width:200px}
+/* Mayorías */
+.lam-ink{background:var(--ink-bg);color:var(--ink-fg)}
+.lam-ink .tag{color:var(--ink-mute)}
+.lam-ink .tag span{color:#FF8B70}
+.may-grid{display:grid;gap:48px}
+@media(min-width:1024px){.may-grid{grid-template-columns:repeat(12,1fr);gap:24px}.may-l{grid-column:1/6}.may-r{grid-column:7/13}}
+.may-grid>*{min-width:0}
+.seg{border:0;margin:32px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.seg legend{color:var(--ink-mute);margin-bottom:12px;padding:0}
+.seg button,.seg label span{display:inline-block;font:600 15px/1.2 var(--font-display);padding:10px 14px;border:1px solid var(--ink-line);background:transparent;color:inherit;cursor:pointer;text-align:left;transition:background .2s,color .2s,border-color .2s}
+.seg button:hover{border-color:var(--ink-fg)}
+.seg button[aria-pressed="true"]{background:var(--ink-fg);color:var(--ink-bg);border-color:var(--ink-fg)}
+.rng{margin-top:30px}
+.rng label{display:block;color:var(--ink-mute);margin-bottom:10px}
+.rng-row{display:flex;align-items:center;gap:16px}
+.rng-row output{font-size:20px;min-width:3ch;text-align:right;font-variant-numeric:tabular-nums}
+input[type=range]{flex:1;min-width:0;appearance:none;-webkit-appearance:none;background:transparent;height:30px;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:1.5px;background:var(--ink-line)}
+input[type=range]::-moz-range-track{height:1.5px;background:var(--ink-line)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;margin-top:-9px;background:var(--ink-fg);border:4px solid var(--ink-bg);outline:1.5px solid var(--ink-fg);border-radius:0}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;background:var(--ink-fg);border:4px solid var(--ink-bg);outline:1.5px solid var(--ink-fg);border-radius:0}
+.need{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 18px}
+#need{font-weight:700;font-size:clamp(100px,14vw,190px);line-height:.8;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.need-t{font-size:clamp(18px,1.8vw,22px);color:var(--ink-mute)}
+.need-t b{color:var(--ink-fg)}
+.meter{margin-top:30px;max-width:560px}
+.meter-bar{height:14px;border:1px solid var(--ink-line);position:relative}
+.meter-bar span{position:absolute;inset:0 auto 0 0;background:var(--ink-hi);transition:width .5s var(--ease)}
+.meter-cota{position:relative;height:30px;margin-top:6px}
+.meter-cota span{position:absolute;left:0;top:8px;height:10px;border-left:1.5px solid #FF7A5C;border-right:1.5px solid #FF7A5C;background:linear-gradient(#FF7A5C,#FF7A5C) center/100% 1px no-repeat;transition:width .5s var(--ease)}
+.meter-cota b{position:absolute;top:18px;left:0;color:#FF8B70;font-weight:500;font-size:11px}
+.dots{display:grid;grid-template-columns:repeat(auto-fill,minmax(16px,1fr));gap:5px;max-width:560px;margin-top:14px}
+.dots i{aspect-ratio:1;border:1px solid var(--ink-line);transition:background .3s,border-color .3s}
+.dots i.on{background:var(--ink-fg);border-color:var(--ink-fg)}
+.may-note{margin-top:26px;max-width:50ch;font-size:18px}
+.may-law{color:#FF8B70;margin-top:8px}
+.may-disc{margin-top:20px;max-width:56ch;font-size:14.5px;color:var(--ink-mute)}
+
+/* Escalera */
+.stair{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.st{padding:20px 20px 26px 22px;border-top:2px solid var(--color-text);border-left:2px solid var(--color-text);background:color-mix(in srgb,var(--color-surface) 60%,transparent);display:grid;gap:8px;align-content:start}
+.st:nth-child(1){margin-left:0}.st:nth-child(2){margin-left:18px}.st:nth-child(3){margin-left:36px}.st:nth-child(4){margin-left:54px;border-bottom:2px solid var(--color-text)}
+.st-n{color:var(--color-cota)}
+.st h3{font-weight:700;font-size:clamp(22px,2vw,28px);letter-spacing:-.02em;line-height:1.1}
+.st p{color:var(--color-muted);font-size:17px;max-width:36ch}
+@media(min-width:900px){
+  .stair{grid-template-columns:repeat(4,minmax(0,1fr));align-items:start}
+  .st{margin-left:0!important;min-height:220px;border-bottom:0}
+  .st:nth-child(2){margin-top:72px}.st:nth-child(3){margin-top:144px}.st:nth-child(4){margin-top:216px;border-bottom:2px solid var(--color-text);border-right:2px solid var(--color-text)}
 }
 
-/* Bento */
-.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
-.tile{background:var(--night-2);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:var(--r);padding:1.6rem;display:flex;flex-direction:column;gap:.8rem;min-width:0}
-.t-aver{grid-column:span 4;grid-row:span 2;background:linear-gradient(160deg,var(--alf),#0A3B78);border-color:transparent}
-.t-col{grid-column:span 2;grid-row:span 2;background:var(--paper);color:var(--paper-ink)}
-.t-stat{grid-column:span 2}
-.t-study{grid-column:span 3;background:var(--lamp);color:var(--lamp-ink);border-color:transparent}
-.t-estate{grid-column:span 3}
-.t-aver h3{font-size:1.8rem;font-weight:800;letter-spacing:-.03em}
-.t-aver > p{color:#C8DAF3;max-width:34rem}
-.track{list-style:none;padding:0;margin:.6rem 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.track li{background:rgba(255,255,255,.08);border-radius:10px;padding:.8rem;display:grid;gap:.3rem;position:relative}
-.track li b{font-size:.92rem}
-.track li small{font-size:.78rem;color:#C8DAF3;line-height:1.35}
-.track li time{font:500 .72rem var(--f-mono);color:#C8DAF3}
-.track li.done::before,.track li.now::before{content:"";position:absolute;top:.8rem;right:.8rem;width:9px;height:9px;transform:rotate(45deg);background:#fff}
-.track li.now{background:var(--lamp);color:var(--lamp-ink)}
-.track li.now small,.track li.now time{color:var(--lamp-ink)}
-.track li.now::before{background:var(--lamp-ink);animation:blink 1.4s infinite}
-@keyframes blink{50%{opacity:.25}}
-.t-aver .note{font-size:.75rem;color:#C8DAF3;font-style:italic}
-.t-aver .btn{align-self:flex-start;margin-top:auto}
-.t-col .tag{color:var(--alf)}
-.t-col h3{font-size:1.25rem}
-.t-col p{color:var(--paper-muted);font-size:.92rem}
-.badge{background:#fff;border-radius:10px;padding:12px;border:1px solid var(--paper-line);display:grid;place-items:center;min-height:96px}
-.badge img{max-width:100%;height:auto;display:block}
-.badge .fallback{text-align:center;font:600 .82rem/1.35 var(--f-body);color:var(--paper-ink)}
-.badge .fallback em{display:block;font:500 .68rem var(--f-mono);color:var(--paper-muted);font-style:normal;margin-top:4px;letter-spacing:.04em}
-.big{font:800 2.4rem/1 var(--f-display);color:var(--alf);letter-spacing:-.04em}
-.t-stat p{color:var(--muted);font-size:.92rem}
-.t-study h3{font-size:1.45rem;font-weight:800;letter-spacing:-.02em}
-.t-study .tag{color:var(--lamp-ink)}
-.t-study p{font-size:.95rem}
-.t-study .btn{align-self:flex-start;background:var(--lamp-ink);color:var(--lamp)}
-.t-estate ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:.5rem 1rem}
-.t-estate li{font-size:.92rem;color:var(--muted);padding-left:1rem;position:relative}
-.t-estate li::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;background:var(--alf-hi);transform:rotate(45deg)}
-.t-estate li b{color:var(--ink);display:block}
-@media (max-width:1000px){.bento{grid-template-columns:repeat(2,1fr)}.t-aver,.t-col,.t-stat,.t-study,.t-estate{grid-column:span 2;grid-row:auto}.t-stat{grid-column:span 1}.track{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:520px){.t-stat{grid-column:span 2}.t-estate ul{grid-template-columns:1fr}}
-
-/* Votos */
-.vote{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-.modes{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.8rem 0 1.4rem}
-.modes button{font:600 .9rem var(--f-body);background:var(--night);border:1px solid var(--line);color:var(--muted);padding:.55rem 1rem;border-radius:999px;cursor:pointer}
-.modes button[aria-pressed="true"]{background:var(--alf);border-color:var(--alf);color:#fff}
-.slider label{display:flex;justify-content:space-between;font-size:.9rem;color:var(--muted)}
-.slider output{font-family:var(--f-mono);color:var(--ink)}
-.slider input{width:100%;accent-color:var(--alf);margin-top:.4rem}
-.verdict{display:flex;align-items:baseline;gap:1rem;margin-top:1.6rem;flex-wrap:wrap}
-.verdict strong{font:800 clamp(3.6rem,8vw,5.4rem)/.9 var(--f-display);color:var(--alf);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
-.verdict span{color:var(--muted);font-size:1.05rem;max-width:16rem}
-.vnote{font-size:.85rem;color:var(--muted);border-top:1px solid var(--line);padding-top:1rem;margin-top:1.4rem}
-.floor{display:grid;gap:4px}
-.vbuild{background:var(--night);border:1px solid var(--line);border-radius:16px;padding:24px;display:grid;gap:4px;justify-self:center;width:min(420px,100%)}
-.vbuild .win{transition:background .35s,box-shadow .35s}
-.vlegend{display:flex;justify-content:center;gap:1.4rem;font-size:.8rem;color:var(--muted);margin-top:.9rem}
-.vlegend i{display:inline-block;width:10px;height:13px;border-radius:2px;vertical-align:-2px;margin-right:.4rem;background:var(--panel-2);transform:rotate(45deg)}
-.vlegend i.on{background:var(--alf)}
-@media (max-width:900px){.vote{grid-template-columns:1fr}}
-
-/* Cambio: botonera de ascensor */
-.lift{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.stop{background:var(--night-2);box-shadow:var(--shadow);border:1px solid var(--line);border-radius:var(--r);padding:1.5rem;display:grid;gap:.7rem;align-content:start;transition:border-color .2s}
-.stop:hover{border-color:var(--alf)}
-.stop .key{width:52px;height:52px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font:700 1.2rem var(--f-display);color:var(--muted);transition:all .2s}
-.stop:hover .key{border-color:var(--alf);color:#fff;background:var(--alf)}
-.stop p{color:var(--muted);font-size:.93rem}
-@media (max-width:900px){.lift{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.lift{grid-template-columns:1fr}}
-
-/* Guía */
-.rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 1.4rem;scrollbar-width:thin}
-.card{flex:0 0 min(300px,82%);scroll-snap-align:start;border:1px solid var(--line);box-shadow:var(--shadow);background:var(--paper);color:var(--paper-ink);border-radius:var(--r);padding:1.5rem;display:flex;flex-direction:column;gap:.7rem}
-.card .tag{color:var(--alf)}
-.card .num{font:800 2.3rem/1 var(--f-display);color:var(--alf);letter-spacing:-.04em}
-.card p{color:var(--paper-muted);font-size:.93rem}
-.rail-ctl{display:flex;gap:.5rem}
-.rail-ctl button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--night-2);color:var(--ink);cursor:pointer;font-size:1.1rem}
-
-/* FAQ */
-.faq{display:grid;grid-template-columns:1fr 1fr;gap:0 3rem}
-.faq details{border-top:1px solid var(--line)}
-.faq summary{cursor:pointer;list-style:none;padding:1.2rem 0;display:flex;justify-content:space-between;gap:1rem;font:700 1.05rem var(--f-display);letter-spacing:-.01em}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font:400 1.4rem/1 var(--f-mono);color:var(--alf);flex:none}
-.faq details[open] summary::after{content:"–"}
-.faq details p{color:var(--muted);padding-bottom:1.2rem}
-@media (max-width:860px){.faq{grid-template-columns:1fr}}
+/* Inmobiliaria */
+.lam-alt{background:var(--color-surface);border-block:1.5px solid var(--color-text)}
+.inm-grid{display:grid;gap:56px}
+@media(min-width:1024px){.inm-grid{grid-template-columns:repeat(12,1fr);gap:24px}.inm-grid>div{grid-column:1/8}.visado{grid-column:9/13;align-self:center}}
+.spec{margin:34px 0 34px;display:grid;border-top:1px solid var(--color-text)}
+.spec div{display:grid;gap:4px;padding-block:16px;border-bottom:1px solid var(--color-border)}
+@media(min-width:640px){.spec div{grid-template-columns:220px minmax(0,1fr);gap:24px}}
+.spec dt{font-weight:700;font-size:19px}
+.spec dd{margin:0;color:var(--color-muted)}
+.stamp{display:inline-grid;gap:6px;justify-items:center;text-align:center;padding:18px 22px;border:3px double var(--color-cota);color:var(--color-accent);transform:rotate(-4deg);margin-bottom:28px;max-width:100%}
+.stamp b{font-size:20px;line-height:1.1;text-transform:uppercase;letter-spacing:.02em;max-width:14ch}
+.stamp .mono{font-size:10.5px}
+.visado h3{font-weight:700;font-size:22px;line-height:1.2;margin-bottom:10px;letter-spacing:-.01em}
+.visado p{color:var(--color-muted);font-size:17px}
 
 /* Contacto */
-.contact{background:linear-gradient(135deg,var(--alf),#073B78);color:#fff}
-.contact .tag{color:var(--lamp)}
-.contact .lead{color:#CFE0F6}
-.c-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;align-items:start}
-.c-grid h2{font-size:clamp(2.2rem,5vw,3.8rem);letter-spacing:-.04em}
-.c-grid .lead{font-size:1.08rem;margin-top:1rem;max-width:30rem}
-.cinfo{display:grid;gap:1.1rem;margin-top:2rem}
-.cinfo dt{font:500 .72rem var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:#AFC8EA}
-.cinfo dd{margin:.15rem 0 0;font:700 1.3rem var(--f-display);display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;user-select:all}
-.copy{user-select:none;font:600 .72rem var(--f-body);background:transparent;border:1.5px solid rgba(255,255,255,.6);color:#fff;border-radius:999px;padding:.2rem .65rem;cursor:pointer}
-.maplink{font-weight:600;font-size:.95rem;color:var(--lamp)}
-form.req{background:#fff;color:var(--ink);border-radius:var(--r);padding:clamp(1.3rem,3vw,2rem);display:grid;grid-template-columns:1fr 1fr;gap:1rem;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
-.f{display:grid;gap:.35rem;min-width:0}
-.f.full{grid-column:1/-1}
-.f label{font-size:.8rem;font-weight:600;color:var(--muted)}
-.f input,.f select,.f textarea{font:inherit;font-size:.95rem;background:var(--night);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:.7rem .8rem;width:100%}
-.f input:focus,.f select:focus,.f textarea:focus{outline:2px solid var(--alf);border-color:transparent}
-.chk{grid-column:1/-1;display:flex;gap:.6rem;font-size:.85rem;color:var(--muted)}
-.chk input{accent-color:var(--alf);margin-top:.25rem}
-form.req .btn{grid-column:1/-1;justify-content:center}
-.ok{grid-column:1/-1;border:1px solid var(--ok);border-radius:10px;padding:1rem;font-size:.9rem}
-.ok pre{white-space:pre-wrap;font:.78rem var(--f-mono);background:var(--night);padding:.7rem;border-radius:8px;margin:.6rem 0;max-height:180px;overflow:auto}
-.ok .copy{border-color:var(--line);color:var(--ink)}
-form.req .copy{border-color:var(--line);color:var(--ink)}
-.rgpd{grid-column:1/-1;font-size:.74rem;color:var(--dim);line-height:1.5}
-@media (max-width:900px){.c-grid{grid-template-columns:1fr}}
-@media (max-width:520px){form.req{grid-template-columns:1fr}}
+.con-grid{display:grid;gap:56px}
+@media(min-width:1024px){.con-grid{grid-template-columns:repeat(12,1fr);gap:24px}.con-l{grid-column:1/6}.form{grid-column:7/13}}
+.con-grid>*{min-width:0}
+.cajetin-big{width:100%;margin-top:34px;border:1.5px solid var(--color-text);background:var(--color-surface);font-size:inherit}
+.cajetin-big th{width:96px;vertical-align:top;padding:16px 12px;font-size:11px}
+.cajetin-big td{padding:14px 14px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.big{font-weight:700;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.01em;line-height:1.15;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.big-s{font-size:clamp(17px,1.6vw,20px)}
+.copy{background:transparent;border:1px solid var(--color-border);color:var(--color-text);padding:7px 10px;cursor:pointer;text-decoration:none;font-size:11px;transition:border-color .2s,background .2s}
+.copy:hover{border-color:var(--color-text)}
+.form{display:grid;gap:22px;align-content:start}
+.seg-light{margin:0}
+.seg-light legend{color:var(--color-muted)}
+.seg-light label{position:relative}
+.seg-light input{position:absolute;opacity:0;width:1px;height:1px}
+.seg-light label span{border-color:var(--color-border);color:var(--color-text)}
+.seg-light label:hover span{border-color:var(--color-text)}
+.seg-light input:checked+span{background:var(--pri-bg);color:var(--pri-fg);border-color:var(--pri-bg)}
+.seg-light input:focus-visible+span{outline:2px solid var(--color-cota);outline-offset:2px}
+.fields{display:grid;gap:18px 20px}
+@media(min-width:640px){.fields{grid-template-columns:1fr 1fr}.fld-full{grid-column:1/-1}}
+.fld{display:grid;gap:6px}
+.fld label{font:500 11px var(--font-mono);text-transform:uppercase;letter-spacing:.04em;color:var(--color-muted)}
+.fld input,.fld textarea{font:inherit;font-size:17px;color:var(--color-text);background:var(--color-surface);border:1px solid var(--color-border);border-bottom:1.5px solid var(--color-text);padding:12px;border-radius:0;width:100%;transition:border-color .2s}
+.fld input:focus,.fld textarea:focus{outline:none;border-color:var(--color-primary);box-shadow:inset 0 -2px 0 var(--color-primary)}
+.fld input[aria-invalid="true"]{border-bottom-color:var(--color-cota)}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;color:var(--color-muted)}
+.chk input{width:18px;height:18px;margin-top:3px;accent-color:var(--color-primary)}
+.form .btn{justify-self:start}
+.fmsg{font-size:15.5px;color:var(--color-accent);min-height:0}
+.fmsg.ok{color:var(--color-text)}
+.fout{border:1.5px solid var(--color-text);padding:16px;background:var(--color-surface);display:grid;gap:12px;justify-items:start}
+.fout pre{margin:0;white-space:pre-wrap;font:13px/1.6 var(--font-mono)}
+.note{font-size:14px;color:var(--color-muted);border-left:2px solid var(--color-cota);padding-left:12px}
+.rgpd{font-size:13px;color:var(--color-muted);line-height:1.5}
 
 /* Pie */
-footer{background:#fff;border-top:1px solid var(--line);font-size:.88rem;color:var(--muted)}
-.fgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.1fr;gap:2rem;padding-block:3rem 2rem}
-.fgrid h4{font:600 .95rem var(--f-display);color:var(--ink);margin:0 0 .8rem}
-.fgrid ul{list-style:none;padding:0;margin:0;display:grid;gap:.4rem}
-.fgrid a{text-decoration:none}.fgrid a:hover{color:var(--alf)}
-.fgrid .logo{margin-bottom:1rem;color:var(--ink)}
-.fgrid .badge{margin-top:1rem;max-width:260px}
-.legal{border-top:1px solid var(--line);padding-block:1.2rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem;font-size:.8rem;color:var(--dim)}
-@media (max-width:860px){.fgrid{grid-template-columns:1fr 1fr}}
-@media (max-width:480px){.fgrid{grid-template-columns:1fr}}
+.foot{border-top:1.5px solid var(--color-text);padding-block:34px calc(26px + env(safe-area-inset-bottom,0px));background:var(--color-bg)}
+.scale{position:relative;display:grid;grid-template-columns:1fr 1fr 3fr 5fr;width:min(320px,100%);height:8px;border:1px solid var(--color-text);margin-bottom:34px}
+.scale span:nth-child(odd){background:var(--color-text)}
+.scale i{white-space:nowrap;position:absolute;top:12px;font-style:normal;font-size:10px;transform:translateX(-50%);color:var(--color-muted)}
+.scale i:nth-of-type(1){left:0}.scale i:nth-of-type(2){left:10%}.scale i:nth-of-type(3){left:20%}.scale i:nth-of-type(4){left:50%}.scale i:nth-of-type(5){left:100%;transform:translateX(-100%)}
+.foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;color:var(--color-muted);font-size:11px;text-transform:none}
 
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
 </style>
-<link rel="canonical" href="https://alfadministraciones.es/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M100 20 L180 100 L100 180 L20 100Z' fill='%230B52A2'/%3E%3Cpath d='M10 100 L88 22 M112 22 L190 100 M190 100 L112 178 M88 178 L10 100' stroke='%230B52A2' stroke-width='8' fill='none'/%3E%3C/svg%3E">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="es_ES">
-<meta property="og:site_name" content="ALF Administración de Fincas">
-<meta property="og:title" content="Administrador de fincas en Palma | ALF Administración de Fincas">
-<meta property="og:description" content="Administración de comunidades de propietarios en Palma y toda Mallorca. Administrador de fincas colegiado.">
-<meta property="og:image" content="https://alfadministraciones.es/og.png">
-<meta property="og:url" content="https://alfadministraciones.es/">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "additionalType": "https://schema.org/RealEstateAgent", "name": "ALF Administración de Fincas", "url": "https://alfadministraciones.es/", "logo": "https://alfadministraciones.es/og.png", "email": "recepcion@alfmallorca.com", "telephone": "+34 971 75 94 53", "taxID": "B27621564", "address": {"@type": "PostalAddress", "streetAddress": "Carrer de Sant Josep de la Muntanya, 15", "postalCode": "07010", "addressLocality": "Palma", "addressRegion": "Illes Balears", "addressCountry": "ES"}, "areaServed": "Mallorca", "description": "Administración de fincas y comunidades de propietarios en Palma y toda Mallorca. Administrador de fincas colegiado."}</script>
-<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
+<!-- ALF 3.0 · «El plano»: ALF conoce su edificio planta a planta -->
+<a class="skip" href="#main">Saltar al contenido</a>
 
+<svg width="0" height="0" class="defs" aria-hidden="true">
+  <defs>
+    <symbol id="alf-mark" viewBox="0 0 200 200">
+      <polygon points="100,26 174,100 100,174 26,100" fill="var(--logo)"/>
+      <path d="M88 18 L6 100 L88 182" fill="none" stroke="var(--logo)" stroke-width="8"/>
+      <path d="M112 18 L194 100 L112 182" fill="none" stroke="var(--logo)" stroke-width="8"/>
+      <text x="100" y="113" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-style="italic" font-size="40" fill="#fff">A.L.F.</text>
+    </symbol>
+  </defs>
+</svg>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-  <symbol id="alf" viewBox="0 0 200 200">
-    <path d="M100 20 L180 100 L100 180 L20 100 Z" fill="#0B52A2"/>
-    <path d="M10 100 L88 22 M112 22 L190 100 M190 100 L112 178 M88 178 L10 100" stroke="#FFFFFF" stroke-width="8" fill="none"/>
-    <text x="100" y="114" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-style="italic" font-size="40" fill="#FFFFFF">A.L.F.</text>
-  </symbol>
-</defs></svg>
-
-<header class="top">
-  <div class="wrap">
-    <a class="logo" href="#inicio" aria-label="ALF Administración de Fincas"><svg viewBox="0 0 200 200" aria-hidden="true"><use href="#alf"/></svg><span><b>A.L.F.</b><small>Administración de Fincas</small></span></a>
-    <button class="mbtn" id="mbtn" aria-expanded="false" aria-controls="nav">Menú</button>
-    <nav class="nav" id="nav">
-      <a href="#servicios">Servicios</a><a href="#oficina">La oficina</a><a href="#votos">Votos</a><a href="#cambio">Cambio</a><a href="#guia">Guía</a><a href="#faq">Preguntas</a>
-    </nav>
-    <a class="btn btn-lamp" href="#contacto">Pedir propuesta</a>
+<header class="bar" id="bar">
+  <div class="bar-in">
+    <a href="#inicio" class="brand" aria-label="ALF Administración de Fincas, ir al inicio">
+      <svg viewBox="0 0 200 200" width="38" height="38" aria-hidden="true"><use href="#alf-mark"/></svg>
+      <span class="brand-t"><b>A.L.F.</b><span>Administración de Fincas</span></span>
+    </a>
+    <p class="sheet mono" aria-hidden="true"><span>Plano</span> <b id="sheetNo">01</b><span>/06</span> <span class="sheet-n" id="sheetName">El edificio</span></p>
+    <div class="bar-act">
+      <span class="tel mono">971 75 94 53</span>
+      <a class="btn btn-sm btn-pri" href="#contacto">Pedir estudio</a>
+      <button class="btn btn-sm btn-ghost idx-btn" id="idxBtn" aria-expanded="false" aria-controls="idx">Índice</button>
+    </div>
   </div>
 </header>
 
-<main id="inicio">
-<section class="hero">
-  <div class="sky"></div>
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <p class="tag">Administrador de fincas colegiado · Mallorca</p>
-      <h1 style="margin-top:1.2rem"><span>Cada vivienda.</span><span>Cada vecino.</span><span class="lit">Cada avería.</span></h1>
-      <p class="intro">Administramos comunidades de propietarios en Palma y en toda Mallorca. Cuentas abiertas a cada vecino, juntas bien preparadas y un gestor que conoce su edificio.</p>
-      <div class="acts">
-        <a class="btn btn-lamp" href="#contacto">Pedir propuesta <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-line" href="#averias">Avisar de una avería</a>
-      </div>
-      <div class="addr"><span>C/ Sant Josep de la Muntanya, 15 · Palma</span><span>971 75 94 53</span><span>Respuesta en el día</span></div>
-    </div>
-    <div class="stage">
-      <div class="mosaic" id="mosaic" aria-hidden="true"></div>
-      <div class="core" aria-hidden="true"><svg viewBox="0 0 200 200"><use href="#alf"/></svg></div>
-      <span class="ficha-tag" aria-hidden="true">Su comunidad, al día</span>
-      <div class="ficha" aria-label="Ejemplo de ficha de comunidad">
-        <header><b>Comunidad · Portal 2</b><small>Ejemplo</small></header>
-        <ul>
-          <li><span>Cuentas</span><span><i class="dot"></i>Al día</span></li>
-          <li><span>Recibos cobrados</span><span>23 de 24</span></li>
-          <li><span>Fondo de reserva</span><span><i class="dot"></i>12 %</span></li>
-          <li><span>Avería garaje</span><span><i class="dot am"></i>En reparación</span></li>
-          <li><span>Junta ordinaria</span><span>Marzo</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+<nav class="idx" id="idx" aria-label="Índice de la página">
+  <ol>
+    <li><a href="#inicio" data-n="01"><span class="mono">01</span><span>El edificio</span></a></li>
+    <li><a href="#calendario" data-n="02"><span class="mono">02</span><span>Calendario anual</span></a></li>
+    <li><a href="#mayorias" data-n="03"><span class="mono">03</span><span>Mayorías</span></a></li>
+    <li><a href="#cambio" data-n="04"><span class="mono">04</span><span>Cambiar de administrador</span></a></li>
+    <li><a href="#inmobiliaria" data-n="05"><span class="mono">05</span><span>Inmobiliaria</span></a></li>
+    <li><a href="#contacto" data-n="06"><span class="mono">06</span><span>Contacto</span></a></li>
+  </ol>
+</nav>
 
-<div class="ribbon" aria-label="Municipios donde trabajamos"><div class="ribbon-track">
-  <span>Palma</span><span>Calvià</span><span>Marratxí</span><span>Llucmajor</span><span>Inca</span><span>Manacor</span><span>Alcúdia</span><span>Pollença</span><span>Sóller</span><span>Andratx</span><span>Santanyí</span><span>Felanitx</span><span>Campos</span><span>Bunyola</span><span>Sa Pobla</span><span>Santa Ponça</span>
-  <span aria-hidden="true">Palma</span><span aria-hidden="true">Calvià</span><span aria-hidden="true">Marratxí</span><span aria-hidden="true">Llucmajor</span><span aria-hidden="true">Inca</span><span aria-hidden="true">Manacor</span><span aria-hidden="true">Alcúdia</span><span aria-hidden="true">Pollença</span><span aria-hidden="true">Sóller</span><span aria-hidden="true">Andratx</span><span aria-hidden="true">Santanyí</span><span aria-hidden="true">Felanitx</span><span aria-hidden="true">Campos</span><span aria-hidden="true">Bunyola</span><span aria-hidden="true">Sa Pobla</span><span aria-hidden="true">Santa Ponça</span>
-</div></div>
+<main id="main">
 
-<section id="servicios">
+<!-- PLANO 01 · HERO -->
+<section class="lam" id="inicio" data-n="01" data-name="El edificio" aria-labelledby="h1">
   <div class="wrap">
-    <div class="head">
-      <div><p class="tag">Servicios</p><h2>Un solo panel para todo su edificio</h2></div>
-      <p class="muted">Hacemos de secretario y administrador de su comunidad, como prevé el artículo 20 de la Ley de Propiedad Horizontal, con apoyo técnico y jurídico. Elija un servicio para ver qué incluye.</p>
-    </div>
-    <div class="console">
-      <div class="svc-list" role="tablist" aria-label="Servicios" id="svcList"></div>
-      <div class="svc-detail" role="tabpanel" id="svcPanel" aria-live="polite">
-        <div>
-          <h3 id="sTitle"></h3>
-          <p class="desc" id="sDesc"></p>
-          <ul id="sList"></ul>
-          <span class="law" id="sLaw"></span>
+    <div class="hero-top">
+      <h1 id="h1" class="h1">Conocemos su edificio <span class="u">planta a planta.</span></h1>
+      <div class="hero-side">
+        <p class="lede">Administración de comunidades de propietarios en Palma y Mallorca. Llevamos las cuentas, las juntas, las averías y las obras de su finca con el rigor de quien la ha estudiado a fondo.</p>
+        <div class="ctas">
+          <a class="btn btn-pri" href="#contacto">Estudio de gastos sin coste <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="#cambio">Cambiar de administrador</a>
         </div>
-        <div class="mini" id="mini" aria-hidden="true"></div>
       </div>
     </div>
-  </div>
-</section>
 
-<section id="oficina" style="padding-top:0">
-  <div class="wrap">
-    <div class="head"><div><p class="tag">La oficina</p><h2>Así trabajamos con su comunidad</h2></div></div>
-    <div class="bento">
-      <article class="tile t-aver" id="averias">
-        <p class="tag" style="color:#FFE3A3">Averías</p>
-        <h3>La seguimos hasta que queda cerrada</h3>
-        <p>Avísenos y la gestionamos con el proveedor. Las urgencias de agua, luz o ascensor se atienden de inmediato y le informamos de cada paso.</p>
-        <ol class="track" aria-label="Ejemplo de seguimiento de una avería">
-          <li class="done"><time>09:12</time><b>Aviso recibido</b><small>Fuga en el garaje, portal 2</small></li>
-          <li class="done"><time>09:40</time><b>Proveedor asignado</b><small>Fontanero de guardia confirmado</small></li>
-          <li class="now"><time>11:05</time><b>En reparación</b><small>Corte parcial de agua hasta las 13:00</small></li>
-          <li><time>—</time><b>Cerrada</b><small>Factura revisada y aviso a vecinos</small></li>
-        </ol>
-        <p class="note">Ejemplo ilustrativo.</p>
-        <a class="btn btn-lamp" href="#contacto" data-motivo="Aviso de avería o incidencia" style="background:var(--lamp);color:var(--lamp-ink)">Avisar de una avería</a>
-      </article>
-      <article class="tile t-col">
-        <p class="tag">Profesión colegiada</p>
-        <div class="badge" id="badgeA">
-          <img src="colegiado.png" alt="Administrador de Fincas Colegiado, Colegio de Administradores de Fincas de Baleares" onerror="this.parentNode.classList.add('nofile');this.remove()">
-          <div class="fallback">Administrador de Fincas Colegiado<em>COLEGIO DE ADMINISTRADORES DE FINCAS DE BALEARES</em></div>
+    <div class="sheetbox">
+      <span class="corner tl" aria-hidden="true"></span><span class="corner tr" aria-hidden="true"></span><span class="corner bl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span>
+      <div class="sheet-grid">
+        <figure class="draw">
+          <svg class="bld" id="bld" viewBox="-240 -436 459 646" role="img" aria-label="Dibujo axonométrico de un edificio de viviendas: planta baja, cuatro plantas, ático y cubierta"><g class="cotas"><line class="cota" x1="-165.9038105676658" y1="74.99999999999999" x2="-165.9038105676658" y2="-225.0"/><g class="lv" data-i="0"><line class="cota" x1="-171.9038105676658" y1="75.0" x2="-159.9038105676658" y2="75.0"/><line class="cota-d" x1="-159.9038105676658" y1="75.0" x2="-133.9" y2="75.0"/><text class="cota-t" x="-175.9038105676658" y="79.0" text-anchor="end">±0,00</text></g><g class="lv" data-i="1"><line class="cota" x1="-171.9038105676658" y1="25.0" x2="-159.9038105676658" y2="25.0"/><line class="cota-d" x1="-159.9038105676658" y1="25.0" x2="-133.9" y2="25.0"/><text class="cota-t" x="-175.9038105676658" y="29.0" text-anchor="end">+3,00</text></g><g class="lv" data-i="2"><line class="cota" x1="-171.9038105676658" y1="-25.0" x2="-159.9038105676658" y2="-25.0"/><line class="cota-d" x1="-159.9038105676658" y1="-25.0" x2="-133.9" y2="-25.0"/><text class="cota-t" x="-175.9038105676658" y="-21.0" text-anchor="end">+6,00</text></g><g class="lv" data-i="3"><line class="cota" x1="-171.9038105676658" y1="-75.0" x2="-159.9038105676658" y2="-75.0"/><line class="cota-d" x1="-159.9038105676658" y1="-75.0" x2="-133.9" y2="-75.0"/><text class="cota-t" x="-175.9038105676658" y="-71.0" text-anchor="end">+9,00</text></g><g class="lv" data-i="4"><line class="cota" x1="-171.9038105676658" y1="-125.0" x2="-159.9038105676658" y2="-125.0"/><line class="cota-d" x1="-159.9038105676658" y1="-125.0" x2="-133.9" y2="-125.0"/><text class="cota-t" x="-175.9038105676658" y="-121.0" text-anchor="end">+12,00</text></g><g class="lv" data-i="5"><line class="cota" x1="-171.9038105676658" y1="-175.0" x2="-159.9038105676658" y2="-175.0"/><line class="cota-d" x1="-159.9038105676658" y1="-175.0" x2="-133.9" y2="-175.0"/><text class="cota-t" x="-175.9038105676658" y="-171.0" text-anchor="end">+15,00</text></g><g class="lv" data-i="6"><line class="cota" x1="-171.9038105676658" y1="-225.0" x2="-159.9038105676658" y2="-225.0"/><line class="cota-d" x1="-159.9038105676658" y1="-225.0" x2="-133.9" y2="-225.0"/><text class="cota-t" x="-175.9038105676658" y="-221.0" text-anchor="end">+18,00</text></g></g><g class="floors"><g class="fl" data-i="0"><polygon class="f-top" points="0.0,-50.0 199.2,65.0 69.3,140.0 -129.9,25.0" pathLength="1"/><g class="plan"><line class="pl" x1="99.6" y1="7.5" x2="50.2" y2="36.0"/><line class="pl" x1="19.1" y1="54.0" x2="-30.3" y2="82.5"/><line class="pl" x1="26.3" y1="22.2" x2="74.1" y2="49.8"/><line class="pl" x1="-4.8" y1="40.2" x2="43.0" y2="67.8"/><line class="pl pl-t" x1="39.8" y1="-27.0" x2="0.9" y2="-4.5"/><line class="pl pl-t" x1="-55.5" y1="0.4" x2="-7.7" y2="28.0"/><line class="pl pl-t" x1="159.3" y1="42.0" x2="120.4" y2="64.5"/><line class="pl pl-t" x1="64.0" y1="69.4" x2="111.8" y2="97.0"/><line class="pl pl-s" x1="27.7" y1="26.0" x2="1.7" y2="41.0"/><line class="pl pl-s" x1="34.4" y1="29.8" x2="8.4" y2="44.8"/><line class="pl pl-s" x1="41.0" y1="33.7" x2="15.0" y2="48.7"/><line class="pl pl-s" x1="47.6" y1="37.5" x2="21.7" y2="52.5"/><line class="pl pl-s" x1="54.3" y1="41.3" x2="28.3" y2="56.3"/><line class="pl pl-s" x1="60.9" y1="45.2" x2="34.9" y2="60.2"/><line class="pl pl-s" x1="67.5" y1="49.0" x2="41.6" y2="64.0"/><circle class="pl-p" cx="0.1" cy="-45.5" r="2"/><circle class="pl-p" cx="-122.0" cy="25.0" r="2"/><circle class="pl-p" cx="95.7" cy="9.7" r="2"/><circle class="pl-p" cx="-26.4" cy="80.2" r="2"/><circle class="pl-p" cx="191.3" cy="64.9" r="2"/><circle class="pl-p" cx="69.2" cy="135.4" r="2"/></g><polygon class="f-l" points="-129.9,75.0 69.3,190.0 69.3,140.0 -129.9,25.0" pathLength="1"/><polygon class="f-r" points="199.2,115.0 69.3,190.0 69.3,140.0 199.2,65.0" pathLength="1"/><g class="wins"><polygon class="door" points="-46.2,123.3 -14.4,141.7 -14.4,102.7 -46.2,84.3"/><line class="mull" x1="-30.3" y1="132.5" x2="-30.3" y2="93.5"/><polygon class="win" points="-118.0,75.9 -62.2,108.1 -62.2,74.1 -118.0,41.9"/><polygon class="win" points="1.6,144.9 57.3,177.1 57.3,143.1 1.6,110.9"/><polygon class="win" points="186.2,116.5 140.7,142.7 140.7,108.7 186.2,82.5"/><polygon class="win" points="127.7,150.2 82.3,176.5 82.3,142.5 127.7,116.2"/></g><line class="slab" x1="-129.9" y1="75.0" x2="69.3" y2="190.0"/><line class="slab" x1="69.3" y1="190.0" x2="199.2" y2="115.0"/></g><g class="fl" data-i="1"><polygon class="f-top" points="0.0,-100.0 199.2,15.0 69.3,90.0 -129.9,-25.0" pathLength="1"/><g class="plan"><line class="pl" x1="99.6" y1="-42.5" x2="50.2" y2="-14.0"/><line class="pl" x1="19.1" y1="4.0" x2="-30.3" y2="32.5"/><line class="pl" x1="26.3" y1="-27.8" x2="74.1" y2="-0.2"/><line class="pl" x1="-4.8" y1="-9.8" x2="43.0" y2="17.8"/><line class="pl pl-t" x1="39.8" y1="-77.0" x2="0.9" y2="-54.5"/><line class="pl pl-t" x1="-55.5" y1="-49.6" x2="-7.7" y2="-22.0"/><line class="pl pl-t" x1="159.3" y1="-8.0" x2="120.4" y2="14.5"/><line class="pl pl-t" x1="64.0" y1="19.4" x2="111.8" y2="47.0"/><line class="pl pl-s" x1="27.7" y1="-24.0" x2="1.7" y2="-9.0"/><line class="pl pl-s" x1="34.4" y1="-20.2" x2="8.4" y2="-5.2"/><line class="pl pl-s" x1="41.0" y1="-16.3" x2="15.0" y2="-1.3"/><line class="pl pl-s" x1="47.6" y1="-12.5" x2="21.7" y2="2.5"/><line class="pl pl-s" x1="54.3" y1="-8.7" x2="28.3" y2="6.3"/><line class="pl pl-s" x1="60.9" y1="-4.8" x2="34.9" y2="10.2"/><line class="pl pl-s" x1="67.5" y1="-1.0" x2="41.6" y2="14.0"/><circle class="pl-p" cx="0.1" cy="-95.5" r="2"/><circle class="pl-p" cx="-122.0" cy="-25.0" r="2"/><circle class="pl-p" cx="95.7" cy="-40.3" r="2"/><circle class="pl-p" cx="-26.4" cy="30.2" r="2"/><circle class="pl-p" cx="191.3" cy="14.9" r="2"/><circle class="pl-p" cx="69.2" cy="85.4" r="2"/></g><polygon class="f-l" points="-129.9,25.0 69.3,140.0 69.3,90.0 -129.9,-25.0" pathLength="1"/><polygon class="f-r" points="199.2,65.0 69.3,140.0 69.3,90.0 199.2,15.0" pathLength="1"/><g class="wins"><polygon class="win" points="-118.0,18.9 -98.0,30.4 -98.0,2.4 -118.0,-9.1"/><polygon class="win" points="-80.1,40.7 -60.2,52.2 -60.2,24.2 -80.1,12.7"/><polygon class="win" points="-42.3,62.6 -22.3,74.1 -22.3,46.1 -42.3,34.6"/><polygon class="win" points="-4.4,84.4 15.5,95.9 15.5,67.9 -4.4,56.4"/><polygon class="win" points="33.4,106.3 53.3,117.8 53.3,89.8 33.4,78.3"/><polygon class="win" points="188.8,58.0 168.0,70.0 168.0,42.0 188.8,30.0"/><polygon class="win" points="148.5,81.2 127.7,93.2 127.7,65.2 148.5,53.2"/><polygon class="win" points="108.3,104.5 87.5,116.5 87.5,88.5 108.3,76.5"/><line class="bal" x1="-129.9" y1="12.0" x2="69.3" y2="127.0"/></g><line class="slab" x1="-129.9" y1="25.0" x2="69.3" y2="140.0"/><line class="slab" x1="69.3" y1="140.0" x2="199.2" y2="65.0"/></g><g class="fl" data-i="2"><polygon class="f-top" points="0.0,-150.0 199.2,-35.0 69.3,40.0 -129.9,-75.0" pathLength="1"/><g class="plan"><line class="pl" x1="99.6" y1="-92.5" x2="50.2" y2="-64.0"/><line class="pl" x1="19.1" y1="-46.0" x2="-30.3" y2="-17.5"/><line class="pl" x1="26.3" y1="-77.8" x2="74.1" y2="-50.2"/><line class="pl" x1="-4.8" y1="-59.8" x2="43.0" y2="-32.2"/><line class="pl pl-t" x1="39.8" y1="-127.0" x2="0.9" y2="-104.5"/><line class="pl pl-t" x1="-55.5" y1="-99.6" x2="-7.7" y2="-72.0"/><line class="pl pl-t" x1="159.3" y1="-58.0" x2="120.4" y2="-35.5"/><line class="pl pl-t" x1="64.0" y1="-30.6" x2="111.8" y2="-3.0"/><line class="pl pl-s" x1="27.7" y1="-74.0" x2="1.7" y2="-59.0"/><line class="pl pl-s" x1="34.4" y1="-70.2" x2="8.4" y2="-55.2"/><line class="pl pl-s" x1="41.0" y1="-66.3" x2="15.0" y2="-51.3"/><line class="pl pl-s" x1="47.6" y1="-62.5" x2="21.7" y2="-47.5"/><line class="pl pl-s" x1="54.3" y1="-58.7" x2="28.3" y2="-43.7"/><line class="pl pl-s" x1="60.9" y1="-54.8" x2="34.9" y2="-39.8"/><line class="pl pl-s" x1="67.5" y1="-51.0" x2="41.6" y2="-36.0"/><circle class="pl-p" cx="0.1" cy="-145.4" r="2"/><circle class="pl-p" cx="-122.0" cy="-75.0" r="2"/><circle class="pl-p" cx="95.7" cy="-90.2" r="2"/><circle class="pl-p" cx="-26.4" cy="-19.8" r="2"/><circle class="pl-p" cx="191.3" cy="-35.1" r="2"/><circle class="pl-p" cx="69.2" cy="35.4" r="2"/></g><polygon class="f-l" points="-129.9,-25.0 69.3,90.0 69.3,40.0 -129.9,-75.0" pathLength="1"/><polygon class="f-r" points="199.2,15.0 69.3,90.0 69.3,40.0 199.2,-35.0" pathLength="1"/><g class="wins"><polygon class="win" points="-118.0,-31.1 -98.0,-19.6 -98.0,-47.6 -118.0,-59.1"/><polygon class="win" points="-80.1,-9.3 -60.2,2.2 -60.2,-25.8 -80.1,-37.3"/><polygon class="win" points="-42.3,12.6 -22.3,24.1 -22.3,-3.9 -42.3,-15.4"/><polygon class="win" points="-4.4,34.4 15.5,45.9 15.5,17.9 -4.4,6.4"/><polygon class="win" points="33.4,56.3 53.3,67.8 53.3,39.8 33.4,28.3"/><polygon class="win" points="188.8,8.0 168.0,20.0 168.0,-8.0 188.8,-20.0"/><polygon class="win" points="148.5,31.2 127.7,43.2 127.7,15.2 148.5,3.2"/><polygon class="win" points="108.3,54.5 87.5,66.5 87.5,38.5 108.3,26.5"/><line class="bal" x1="-129.9" y1="-38.0" x2="69.3" y2="77.0"/></g><line class="slab" x1="-129.9" y1="-25.0" x2="69.3" y2="90.0"/><line class="slab" x1="69.3" y1="90.0" x2="199.2" y2="15.0"/></g><g class="fl" data-i="3"><polygon class="f-top" points="0.0,-200.0 199.2,-85.0 69.3,-10.0 -129.9,-125.0" pathLength="1"/><g class="plan"><line class="pl" x1="99.6" y1="-142.5" x2="50.2" y2="-114.0"/><line class="pl" x1="19.1" y1="-96.0" x2="-30.3" y2="-67.5"/><line class="pl" x1="26.3" y1="-127.8" x2="74.1" y2="-100.2"/><line class="pl" x1="-4.8" y1="-109.8" x2="43.0" y2="-82.2"/><line class="pl pl-t" x1="39.8" y1="-177.0" x2="0.9" y2="-154.5"/><line class="pl pl-t" x1="-55.5" y1="-149.6" x2="-7.7" y2="-122.0"/><line class="pl pl-t" x1="159.3" y1="-108.0" x2="120.4" y2="-85.5"/><line class="pl pl-t" x1="64.0" y1="-80.6" x2="111.8" y2="-53.0"/><line class="pl pl-s" x1="27.7" y1="-124.0" x2="1.7" y2="-109.0"/><line class="pl pl-s" x1="34.4" y1="-120.2" x2="8.4" y2="-105.2"/><line class="pl pl-s" x1="41.0" y1="-116.3" x2="15.0" y2="-101.3"/><line class="pl pl-s" x1="47.6" y1="-112.5" x2="21.7" y2="-97.5"/><line class="pl pl-s" x1="54.3" y1="-108.7" x2="28.3" y2="-93.7"/><line class="pl pl-s" x1="60.9" y1="-104.8" x2="34.9" y2="-89.8"/><line class="pl pl-s" x1="67.5" y1="-101.0" x2="41.6" y2="-86.0"/><circle class="pl-p" cx="0.1" cy="-195.4" r="2"/><circle class="pl-p" cx="-122.0" cy="-125.0" r="2"/><circle class="pl-p" cx="95.7" cy="-140.2" r="2"/><circle class="pl-p" cx="-26.4" cy="-69.8" r="2"/><circle class="pl-p" cx="191.3" cy="-85.1" r="2"/><circle class="pl-p" cx="69.2" cy="-14.6" r="2"/></g><polygon class="f-l" points="-129.9,-75.0 69.3,40.0 69.3,-10.0 -129.9,-125.0" pathLength="1"/><polygon class="f-r" points="199.2,-35.0 69.3,40.0 69.3,-10.0 199.2,-85.0" pathLength="1"/><g class="wins"><polygon class="win" points="-118.0,-81.1 -98.0,-69.6 -98.0,-97.6 -118.0,-109.1"/><polygon class="win" points="-80.1,-59.3 -60.2,-47.8 -60.2,-75.8 -80.1,-87.3"/><polygon class="win" points="-42.3,-37.4 -22.3,-25.9 -22.3,-53.9 -42.3,-65.4"/><polygon class="win" points="-4.4,-15.6 15.5,-4.1 15.5,-32.1 -4.4,-43.6"/><polygon class="win" points="33.4,6.3 53.3,17.8 53.3,-10.2 33.4,-21.7"/><polygon class="win" points="188.8,-42.0 168.0,-30.0 168.0,-58.0 188.8,-70.0"/><polygon class="win" points="148.5,-18.8 127.7,-6.8 127.7,-34.8 148.5,-46.8"/><polygon class="win" points="108.3,4.5 87.5,16.5 87.5,-11.5 108.3,-23.5"/><line class="bal" x1="-129.9" y1="-88.0" x2="69.3" y2="27.0"/></g><line class="slab" x1="-129.9" y1="-75.0" x2="69.3" y2="40.0"/><line class="slab" x1="69.3" y1="40.0" x2="199.2" y2="-35.0"/></g><g class="fl" data-i="4"><polygon class="f-top" points="0.0,-250.0 199.2,-135.0 69.3,-60.0 -129.9,-175.0" pathLength="1"/><g class="plan"><line class="pl" x1="99.6" y1="-192.5" x2="50.2" y2="-164.0"/><line class="pl" x1="19.1" y1="-146.0" x2="-30.3" y2="-117.5"/><line class="pl" x1="26.3" y1="-177.8" x2="74.1" y2="-150.2"/><line class="pl" x1="-4.8" y1="-159.8" x2="43.0" y2="-132.2"/><line class="pl pl-t" x1="39.8" y1="-227.0" x2="0.9" y2="-204.5"/><line class="pl pl-t" x1="-55.5" y1="-199.6" x2="-7.7" y2="-171.9"/><line class="pl pl-t" x1="159.3" y1="-158.0" x2="120.4" y2="-135.5"/><line class="pl pl-t" x1="64.0" y1="-130.6" x2="111.8" y2="-103.0"/><line class="pl pl-s" x1="27.7" y1="-174.0" x2="1.7" y2="-159.0"/><line class="pl pl-s" x1="34.4" y1="-170.2" x2="8.4" y2="-155.2"/><line class="pl pl-s" x1="41.0" y1="-166.3" x2="15.0" y2="-151.3"/><line class="pl pl-s" x1="47.6" y1="-162.5" x2="21.7" y2="-147.5"/><line class="pl pl-s" x1="54.3" y1="-158.7" x2="28.3" y2="-143.7"/><line class="pl pl-s" x1="60.9" y1="-154.8" x2="34.9" y2="-139.8"/><line class="pl pl-s" x1="67.5" y1="-151.0" x2="41.6" y2="-136.0"/><circle class="pl-p" cx="0.1" cy="-245.4" r="2"/><circle class="pl-p" cx="-122.0" cy="-175.0" r="2"/><circle class="pl-p" cx="95.7" cy="-190.2" r="2"/><circle class="pl-p" cx="-26.4" cy="-119.8" r="2"/><circle class="pl-p" cx="191.3" cy="-135.1" r="2"/><circle class="pl-p" cx="69.2" cy="-64.6" r="2"/></g><polygon class="f-l" points="-129.9,-125.0 69.3,-10.0 69.3,-60.0 -129.9,-175.0" pathLength="1"/><polygon class="f-r" points="199.2,-85.0 69.3,-10.0 69.3,-60.0 199.2,-135.0" pathLength="1"/><g class="wins"><polygon class="win" points="-118.0,-131.1 -98.0,-119.6 -98.0,-147.6 -118.0,-159.1"/><polygon class="win" points="-80.1,-109.3 -60.2,-97.8 -60.2,-125.8 -80.1,-137.2"/><polygon class="win" points="-42.3,-87.4 -22.3,-75.9 -22.3,-103.9 -42.3,-115.4"/><polygon class="win" points="-4.4,-65.6 15.5,-54.1 15.5,-82.1 -4.4,-93.6"/><polygon class="win" points="33.4,-43.7 53.3,-32.2 53.3,-60.2 33.4,-71.7"/><polygon class="win" points="188.8,-92.0 168.0,-80.0 168.0,-108.0 188.8,-120.0"/><polygon class="win" points="148.5,-68.8 127.7,-56.8 127.7,-84.8 148.5,-96.8"/><polygon class="win" points="108.3,-45.5 87.5,-33.5 87.5,-61.5 108.3,-73.5"/><line class="bal" x1="-129.9" y1="-138.0" x2="69.3" y2="-23.0"/></g><line class="slab" x1="-129.9" y1="-125.0" x2="69.3" y2="-10.0"/><line class="slab" x1="69.3" y1="-10.0" x2="199.2" y2="-85.0"/></g><g class="fl" data-i="5"><polygon class="f-top" points="0.0,-300.0 199.2,-185.0 69.3,-110.0 -129.9,-225.0" pathLength="1"/><g class="plan"><line class="pl" x1="99.6" y1="-242.5" x2="50.2" y2="-214.0"/><line class="pl" x1="19.1" y1="-196.0" x2="-30.3" y2="-167.5"/><line class="pl" x1="26.3" y1="-227.8" x2="74.1" y2="-200.2"/><line class="pl" x1="-4.8" y1="-209.8" x2="43.0" y2="-182.2"/><line class="pl pl-t" x1="39.8" y1="-277.0" x2="0.9" y2="-254.5"/><line class="pl pl-t" x1="-55.5" y1="-249.6" x2="-7.7" y2="-221.9"/><line class="pl pl-t" x1="159.3" y1="-208.0" x2="120.4" y2="-185.5"/><line class="pl pl-t" x1="64.0" y1="-180.6" x2="111.8" y2="-153.0"/><line class="pl pl-s" x1="27.7" y1="-224.0" x2="1.7" y2="-209.0"/><line class="pl pl-s" x1="34.4" y1="-220.2" x2="8.4" y2="-205.2"/><line class="pl pl-s" x1="41.0" y1="-216.3" x2="15.0" y2="-201.3"/><line class="pl pl-s" x1="47.6" y1="-212.5" x2="21.7" y2="-197.5"/><line class="pl pl-s" x1="54.3" y1="-208.7" x2="28.3" y2="-193.7"/><line class="pl pl-s" x1="60.9" y1="-204.8" x2="34.9" y2="-189.8"/><line class="pl pl-s" x1="67.5" y1="-201.0" x2="41.6" y2="-186.0"/><circle class="pl-p" cx="0.1" cy="-295.4" r="2"/><circle class="pl-p" cx="-122.0" cy="-225.0" r="2"/><circle class="pl-p" cx="95.7" cy="-240.2" r="2"/><circle class="pl-p" cx="-26.4" cy="-169.8" r="2"/><circle class="pl-p" cx="191.3" cy="-185.1" r="2"/><circle class="pl-p" cx="69.2" cy="-114.6" r="2"/></g><polygon class="f-l" points="-129.9,-175.0 69.3,-60.0 69.3,-110.0 -129.9,-225.0" pathLength="1"/><polygon class="f-r" points="199.2,-135.0 69.3,-60.0 69.3,-110.0 199.2,-185.0" pathLength="1"/><g class="wins"><polygon class="win" points="-118.0,-181.1 -98.0,-169.6 -98.0,-197.6 -118.0,-209.1"/><polygon class="win" points="-80.1,-159.2 -60.2,-147.8 -60.2,-175.8 -80.1,-187.2"/><polygon class="win" points="-42.3,-137.4 -22.3,-125.9 -22.3,-153.9 -42.3,-165.4"/><polygon class="win" points="-4.4,-115.6 15.5,-104.1 15.5,-132.1 -4.4,-143.6"/><polygon class="win" points="33.4,-93.7 53.3,-82.2 53.3,-110.2 33.4,-121.7"/><polygon class="win" points="188.8,-142.0 168.0,-130.0 168.0,-158.0 188.8,-170.0"/><polygon class="win" points="148.5,-118.8 127.7,-106.8 127.7,-134.8 148.5,-146.8"/><polygon class="win" points="108.3,-95.5 87.5,-83.5 87.5,-111.5 108.3,-123.5"/><line class="bal" x1="-129.9" y1="-188.0" x2="69.3" y2="-73.0"/></g><line class="slab" x1="-129.9" y1="-175.0" x2="69.3" y2="-60.0"/><line class="slab" x1="69.3" y1="-60.0" x2="199.2" y2="-135.0"/></g><g class="fl fl-roof" data-i="6"><polygon class="f-top f-roof" points="0.0,-316.0 199.2,-201.0 69.3,-126.0 -129.9,-241.0" pathLength="1"/><polygon class="solar" points="0.4,-293.2 20.4,-281.8 -25.1,-261.5 -45.0,-273.0"/><polygon class="solar" points="26.3,-278.3 46.2,-266.8 0.8,-246.6 -19.1,-258.1"/><polygon class="solar" points="52.2,-263.4 72.1,-251.9 26.7,-231.6 6.8,-243.1"/><polygon class="solar" points="78.1,-248.4 98.0,-236.9 52.6,-216.7 32.6,-228.2"/><polygon class="f-l" points="45.6,-199.7 93.4,-172.1 93.4,-194.1 45.6,-221.7" pathLength="1"/><polygon class="f-r" points="145.3,-202.1 93.4,-172.1 93.4,-194.1 145.3,-224.1" pathLength="1"/><polygon class="f-top" points="97.5,-251.7 145.3,-224.1 93.4,-194.1 45.6,-221.7" pathLength="1"/><line class="ant" x1="-44.2" y1="-221.5" x2="-44.2" y2="-255.5"/><line class="ant" x1="-51.1" y1="-253.5" x2="-37.2" y2="-245.5"/><polygon class="f-l" points="-129.9,-225.0 69.3,-110.0 69.3,-126.0 -129.9,-241.0" pathLength="1"/><polygon class="f-r" points="199.2,-185.0 69.3,-110.0 69.3,-126.0 199.2,-201.0" pathLength="1"/></g></g></svg>
+          <figcaption class="mono draw-cap">Edificio tipo · Sección axonométrica · Seleccione una planta</figcaption>
+        </figure>
+        <div class="floors-ui">
+          <p class="mono kicker">Qué llevamos en cada planta</p>
+          <ul class="flist" id="flist">
+            <li data-i="6"><button type="button" class="frow" aria-expanded="false"><span class="mono lvl">Cubierta</span><span class="fname">Obras, ITE e IEE</span></button>
+              <div class="fdet"><p>Inspección técnica del edificio, comparativa de presupuestos, coordinación con el técnico y gestión de derramas y ayudas a la rehabilitación.</p></div></li>
+            <li data-i="5"><button type="button" class="frow" aria-expanded="false"><span class="mono lvl">Ático</span><span class="fname">Compraventa y alquiler</span></button>
+              <div class="fdet"><p>Valoración, búsqueda de comprador o inquilino, contratos y el certificado de deuda con la comunidad que pide la notaría.</p></div></li>
+            <li data-i="4"><button type="button" class="frow" aria-expanded="false"><span class="mono lvl">Planta 4</span><span class="fname">Seguros y siniestros</span></button>
+              <div class="fdet"><p>Revisión de pólizas y capitales asegurados, apertura de partes y seguimiento con el perito hasta el cobro.</p></div></li>
+            <li data-i="3"><button type="button" class="frow" aria-expanded="false"><span class="mono lvl">Planta 3</span><span class="fname">Morosidad y asesoría</span></button>
+              <div class="fdet"><p>Reclamación de cuotas impagadas, desde el aviso amistoso hasta el procedimiento monitorio, y respuesta a sus dudas sobre la Ley de Propiedad Horizontal.</p></div></li>
+            <li data-i="2" class="sel"><button type="button" class="frow" aria-expanded="true"><span class="mono lvl">Planta 2</span><span class="fname">Juntas y actas</span></button>
+              <div class="fdet"><p>Convocatoria con el orden del día, asistencia como secretario-administrador, acta en plazo y ejecución de lo acordado.</p></div></li>
+            <li data-i="1"><button type="button" class="frow" aria-expanded="false"><span class="mono lvl">Planta 1</span><span class="fname">Cuentas y contabilidad</span></button>
+              <div class="fdet"><p>Contabilidad por partidas, conciliación bancaria, recibos y presupuesto anual con su fondo de reserva. Cuentas que cualquier vecino entiende.</p></div></li>
+            <li data-i="0"><button type="button" class="frow" aria-expanded="false"><span class="mono lvl">Planta baja</span><span class="fname">Averías y mantenimiento</span></button>
+              <div class="fdet"><p>Una llamada a la oficina basta. Avisamos al profesional, seguimos la reparación y le confirmamos cuándo queda resuelta.</p></div></li>
+          </ul>
         </div>
-        <h3>Colegio Oficial de Administradores de Fincas de Baleares</h3>
-        <p>Trabajamos sujetos a los estatutos y al código deontológico del Colegio, con seguro de responsabilidad civil profesional.</p>
-      </article>
-      <article class="tile t-stat"><span class="big">En el día</span><p>Respondemos en la misma jornada laborable. Cada comunidad tiene su gestor.</p></article>
-      <article class="tile t-stat"><span class="big">Abiertas</span><p>Las cuentas, a disposición de cada propietario. Sin sorpresas en la factura.</p></article>
-      <article class="tile t-study">
-        <p class="tag">Sin coste</p>
-        <h3>Estudio de gastos de su comunidad</h3>
-        <p>Envíenos el último presupuesto o el cierre anual y le indicamos dónde ahorrar sin perder servicios.</p>
-        <a class="btn" href="#contacto" data-motivo="Estudio de gastos sin coste">Pedir el estudio</a>
-      </article>
-      <article class="tile t-estate" id="inmobiliaria">
-        <p class="tag">Servicios relativos a la propiedad</p>
-        <h3>También su vivienda</h3>
-        <ul>
-          <li><b>Compraventa</b>Vivienda, local o garaje, con el certificado de la comunidad listo.</li>
-          <li><b>Alquiler</b>Inquilino, contrato y seguimiento.</li>
-          <li><b>Gestión del inmueble</b>Rentas, reparaciones y suministros.</li>
-          <li><b>Documentación</b>Certificados y trámites para notaría y banco.</li>
-        </ul>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="votos" style="background:#fff;border-block:1px solid var(--line)">
-  <div class="wrap vote">
-    <div>
-      <p class="tag">Calculadora de mayorías</p>
-      <h2 style="margin-top:1rem">¿Cuántos vecinos tienen que estar de acuerdo?</h2>
-      <p class="muted" style="margin-top:1rem;max-width:32rem">Cada rombo es una vivienda o local. Elija el acuerdo y el tamaño de la comunidad para ver cuántos propietarios hacen falta.</p>
-      <div class="modes" role="group" aria-label="Tipo de acuerdo">
-        <button type="button" data-mode="cambio" aria-pressed="true">Cambiar de administrador</button>
-        <button type="button" data-mode="extra" aria-pressed="false">Pedir junta extraordinaria</button>
-        <button type="button" data-mode="turistico" aria-pressed="false">Piso turístico</button>
       </div>
-      <div class="slider"><label for="n">Viviendas y locales <output id="nOut">24</output></label><input type="range" id="n" min="4" max="60" value="24"></div>
-      <div class="verdict"><strong id="k">13</strong><span id="kTxt">de 24 propietarios deben votar a favor</span></div>
-      <p class="vnote" id="vNote"></p>
-    </div>
-    <div>
-      <div class="vbuild" id="vbuild" aria-hidden="true"></div>
-      <div class="vlegend"><span><i class="on"></i>Votos necesarios</span><span><i></i>Resto</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="cambio">
-  <div class="wrap">
-    <div class="head">
-      <div><p class="tag">Cambiar de administrador</p><h2>Lo decide la junta. El traspaso es cosa nuestra.</h2></div>
-      <p class="muted">Basta la mayoría simple. Nosotros nos ocupamos de toda la documentación, sin cortes en el servicio para los vecinos.</p>
-    </div>
-    <div class="lift">
-      <div class="stop"><span class="key">1</span><h3>Escuchamos</h3><p>Nos cuenta cómo es la comunidad: viviendas, locales, garajes, servicios comunes y asuntos pendientes.</p></div>
-      <div class="stop"><span class="key">2</span><h3>Visitamos</h3><p>Vemos el inmueble y le entregamos una propuesta de honorarios por escrito, sin compromiso.</p></div>
-      <div class="stop"><span class="key">3</span><h3>La junta vota</h3><p>La junta aprueba el nombramiento. Si lo necesita, le ayudamos con el orden del día.</p></div>
-      <div class="stop"><span class="key">4</span><h3>Traspasamos</h3><p>Recogemos libro de actas, contabilidad, contratos y cuentas, y cambiamos firmantes y proveedores.</p></div>
+      <table class="cajetin mono" aria-label="Datos de ALF">
+        <tr><th scope="row">Proyecto</th><td>Administración de fincas</td></tr>
+        <tr><th scope="row">Despacho</th><td>ALF · Palma</td></tr>
+        <tr><th scope="row">Colegiado</th><td>CAF Baleares</td></tr>
+        <tr><th scope="row">Plano</th><td>01 / 06</td></tr>
+      </table>
     </div>
   </div>
 </section>
 
-<section id="guia" style="padding-top:0">
+<!-- PLANO 02 · CALENDARIO -->
+<section class="lam" id="calendario" data-n="02" data-name="Calendario anual" aria-labelledby="h-cal">
   <div class="wrap">
-    <div class="head">
-      <div><p class="tag">Guía del propietario</p><h2>Lo que más nos preguntan los vecinos</h2></div>
-      <div class="rail-ctl"><button type="button" id="prev" aria-label="Anterior">←</button><button type="button" id="next" aria-label="Siguiente">→</button></div>
-    </div>
-    <div class="rail" id="rail">
-      <article class="card"><span class="tag">Junta ordinaria</span><span class="num">1 al año</span><p>Se celebra al menos una vez al año para aprobar presupuestos y cuentas.</p></article>
-      <article class="card"><span class="tag">Junta extraordinaria</span><span class="num">25 %</span><p>Puede pedirla la cuarta parte de los propietarios, o los que sumen el 25 % de las cuotas.</p></article>
-      <article class="card"><span class="tag">Pisos turísticos</span><span class="num">3/5</span><p>Desde abril de 2025 hace falta el acuerdo previo de la junta, por tres quintos de propietarios y de cuotas.</p></article>
-      <article class="card"><span class="tag">Fondo de reserva</span><span class="num">≥ 10 %</span><p>Como mínimo, el 10 % del último presupuesto ordinario. Es de la comunidad, no de cada propietario.</p></article>
-      <article class="card"><span class="tag">Derramas</span><span class="num">Al vencer</span><p>Si se vende el piso, paga cada plazo quien sea propietario cuando vence, salvo pacto en contrario.</p></article>
-      <article class="card"><span class="tag">Vender un piso</span><span class="num">Certificado</span><p>Hay que aportar el certificado de estar al corriente con la comunidad. Lo emitimos a petición del propietario.</p></article>
-    </div>
-  </div>
-</section>
-
-<section id="faq" style="padding-top:0">
-  <div class="wrap">
-    <div class="head"><div><p class="tag">Preguntas frecuentes</p><h2>Antes de decidir</h2></div></div>
-    <div class="faq">
-      <div>
-        <details><summary>¿Qué mayoría hace falta para cambiar de administrador?</summary><p>Basta la mayoría simple de la junta de propietarios. Puede incluirse en el orden del día de la junta ordinaria o tratarse en una extraordinaria.</p></details>
-        <details><summary>¿Qué pasa con la documentación de la comunidad?</summary><p>El administrador saliente debe entregar el libro de actas, la contabilidad, los justificantes y los contratos vigentes. Los solicitamos y comprobamos que la entrega esté completa.</p></details>
-        <details><summary>¿Cuánto cuesta administrar una comunidad?</summary><p>Depende del número de propiedades, los servicios comunes y la complejidad de la comunidad. Le enviamos una propuesta cerrada por escrito tras conocer el edificio.</p></details>
-      </div>
-      <div>
-        <details><summary>¿Trabajan fuera de Palma?</summary><p>Sí. Trabajamos con comunidades de toda Mallorca: Calvià, Marratxí, Llucmajor, Inca, Manacor y otros municipios.</p></details>
-        <details><summary>Voy a vender mi piso. ¿Necesito un certificado de la comunidad?</summary><p>Sí. En la compraventa se aporta el certificado de estar al corriente de los gastos de comunidad. Lo emitimos a solicitud del propietario y también podemos ayudarle con la venta.</p></details>
-        <details><summary>¿Pueden gestionar también mi alquiler?</summary><p>Sí. Buscamos inquilino, preparamos el contrato y hacemos el seguimiento del arrendamiento.</p></details>
+    <header class="lam-h">
+      <p class="mono tag"><span>02</span>Calendario anual</p>
+      <h2 id="h-cal" class="h2">Un año de su comunidad, planificado.</h2>
+      <p class="sub">Así se reparte el trabajo a lo largo del ejercicio. Los plazos de convocatoria y actas siguen la Ley de Propiedad Horizontal.</p>
+    </header>
+    <div class="gantt-wrap">
+      <div class="gantt" role="table" aria-label="Calendario anual de tareas de la comunidad">
+        <div class="g-cols" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="g-row g-head" role="row">
+          <span class="g-l" role="columnheader">Tarea</span>
+          <span role="columnheader">Ene</span><span role="columnheader">Feb</span><span role="columnheader">Mar</span><span role="columnheader">Abr</span><span role="columnheader">May</span><span role="columnheader">Jun</span><span role="columnheader">Jul</span><span role="columnheader">Ago</span><span role="columnheader">Sep</span><span role="columnheader">Oct</span><span role="columnheader">Nov</span><span role="columnheader">Dic</span>
+        </div>
+        <div class="g-row" role="row"><span class="g-l" role="rowheader">Cierre y liquidación de cuentas</span><span class="g-b" style="grid-column:2/3" role="cell">Enero</span></div>
+        <div class="g-row" role="row"><span class="g-l" role="rowheader">Convocatoria de la junta ordinaria <em class="law">art. 16.3</em></span><span class="g-b g-short g-start" style="grid-column:3/4" role="cell">Febrero, al menos seis días antes de la junta</span></div>
+        <div class="g-row" role="row"><span class="g-l" role="rowheader">Junta ordinaria</span><span class="g-b g-m" style="grid-column:3/4" role="cell">Febrero</span></div>
+        <div class="g-row" role="row"><span class="g-l" role="rowheader">Acta de la junta <em class="law">art. 19</em></span><span class="g-b g-short" style="grid-column:3/4" role="cell">Febrero, en los diez días siguientes a la junta</span></div>
+        <div class="g-row" role="row"><span class="g-l" role="rowheader">Ejecución de acuerdos</span><span class="g-b" style="grid-column:4/7" role="cell">Marzo a mayo</span></div>
+        <div class="g-row" role="row"><span class="g-l" role="rowheader">Revisión de contratos y mantenimiento</span><span class="g-b" style="grid-column:5/14" role="cell">Abril a diciembre</span></div>
+        <div class="g-row" role="row"><span class="g-l" role="rowheader">Presupuesto y fondo de reserva <em class="law">art. 9.1.f</em></span><span class="g-b" style="grid-column:12/14" role="cell">Noviembre a diciembre</span></div>
+        <div class="g-row" role="row"><span class="g-l" role="rowheader">Cobro de recibos y seguimiento de impagos</span><span class="g-b g-dash" style="grid-column:2/14" role="cell">Todo el año, según la periodicidad de su comunidad</span></div>
+        <div class="g-row" role="row"><span class="g-l" role="rowheader">Averías y urgencias</span><span class="g-b g-red" style="grid-column:2/14" role="cell">Todo el año</span></div>
       </div>
     </div>
+    <p class="g-hint mono">Deslice para ver el año completo →</p>
   </div>
 </section>
 
-<section id="contacto" class="contact">
-  <div class="wrap c-grid">
+<!-- PLANO 03 · MAYORÍAS -->
+<section class="lam lam-ink" id="mayorias" data-n="03" data-name="Mayorías" aria-labelledby="h-may">
+  <div class="wrap may-grid">
+    <div class="may-l">
+      <p class="mono tag"><span>03</span>Calculadora de mayorías</p>
+      <h2 id="h-may" class="h2">¿Cuántos votos necesita su acuerdo?</h2>
+      <fieldset class="seg" id="acuerdos"><legend class="mono">Tipo de acuerdo</legend></fieldset>
+      <div class="rng">
+        <label class="mono" for="owners">Propietarios en la comunidad</label>
+        <div class="rng-row"><input type="range" id="owners" min="3" max="80" value="24"><output id="ownersOut" for="owners" class="mono">24</output></div>
+      </div>
+    </div>
+    <div class="may-r" aria-live="polite">
+      <p class="need"><span id="need">13</span><span class="need-t">votos a favor de <b id="tot">24</b></span></p>
+      <div class="meter" aria-hidden="true">
+        <div class="meter-bar"><span id="meterFill"></span></div>
+        <div class="meter-cota"><span id="meterCota"></span><b class="mono" id="meterTxt">13 / 24</b></div>
+      </div>
+      <div class="dots" id="dots" aria-hidden="true"></div>
+      <p class="may-note" id="mayNote"></p>
+      <p class="mono may-law" id="mayLaw"></p>
+      <p class="may-disc">Cálculo orientativo por número de propietarios. La ley exige además la mayoría de cuotas de participación correspondiente.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PLANO 04 · CAMBIO -->
+<section class="lam" id="cambio" data-n="04" data-name="Cambiar de administrador" aria-labelledby="h-cam">
+  <div class="wrap">
+    <header class="lam-h">
+      <p class="mono tag"><span>04</span>Cambiar de administrador</p>
+      <h2 id="h-cam" class="h2">Cuatro peldaños y su comunidad está con nosotros.</h2>
+      <p class="sub">Basta un acuerdo por mayoría simple en junta. Del traspaso nos ocupamos nosotros.</p>
+    </header>
+    <ol class="stair">
+      <li class="st"><span class="st-n mono">Peldaño 1</span><h3>Estudio de gastos sin coste</h3><p>Revisamos presupuesto, contratos y seguro y le decimos dónde se puede ahorrar.</p></li>
+      <li class="st"><span class="st-n mono">Peldaño 2</span><h3>Acuerdo en junta</h3><p>El nombramiento entra en el orden del día. Si hace falta, le ayudamos a pedir una junta extraordinaria.</p></li>
+      <li class="st"><span class="st-n mono">Peldaño 3</span><h3>Traspaso de documentación</h3><p>Pedimos al administrador saliente libros de actas, contabilidad, contratos y saldos.</p></li>
+      <li class="st"><span class="st-n mono">Peldaño 4</span><h3>Primer mes</h3><p>Cuentas al día, proveedores avisados y cada propietario con nuestros datos de contacto.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- PLANO 05 · INMOBILIARIA Y COLEGIO -->
+<section class="lam lam-alt" id="inmobiliaria" data-n="05" data-name="Inmobiliaria" aria-labelledby="h-inm">
+  <div class="wrap inm-grid">
     <div>
-      <p class="tag">Contacto</p>
-      <h2 style="margin-top:1rem">Hablemos de su comunidad.</h2>
-      <p class="lead">Cuéntenos cómo es su edificio y le respondemos con una propuesta de honorarios por escrito, sin compromiso.</p>
-      <dl class="cinfo">
-        <div><dt>Oficina</dt><dd>C/ Sant Josep de la Muntanya, 15 · 07010 Palma</dd><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Carrer%20de%20Sant%20Josep%20de%20la%20Muntanya%2015%2C%20Palma" target="_blank" rel="noopener">Cómo llegar →</a></div>
-        <div><dt>Correo</dt><dd><span>recepcion@alfmallorca.com</span><button type="button" class="copy" data-copy="recepcion@alfmallorca.com">Copiar</button></dd></div>
-        <div><dt>Teléfono</dt><dd><span>971 75 94 53</span><button type="button" class="copy" data-copy="971759453">Copiar</button></dd></div>
+      <p class="mono tag"><span>05</span>Intermediación inmobiliaria</p>
+      <h2 id="h-inm" class="h2">Y cuando toca vender o alquilar.</h2>
+      <dl class="spec">
+        <div><dt>Compraventa</dt><dd>Valoración, publicación, visitas y acompañamiento hasta la notaría.</dd></div>
+        <div><dt>Alquiler</dt><dd>Selección de inquilino, contrato, depósito de la fianza e inventario.</dd></div>
+        <div><dt>Certificado de deuda</dt><dd>Lo emitimos para la escritura: acredita que la vivienda está al corriente con la comunidad.</dd></div>
+        <div><dt>Documentación</dt><dd>Cédula de habitabilidad, certificado energético y nota simple.</dd></div>
       </dl>
+      <a class="btn btn-ghost" href="#contacto" data-motivo="Compraventa o alquiler">Consultar sobre mi vivienda <span class="arr" aria-hidden="true">→</span></a>
     </div>
-    <form class="req" id="form" novalidate>
-      <div class="f full"><label for="motivo">Motivo</label><select id="motivo"><option>Solicitud de presupuesto</option><option>Estudio de gastos sin coste</option><option>Aviso de avería o incidencia</option><option>Compraventa o alquiler</option><option>Otra consulta</option></select></div>
-      <div class="f"><label for="nombre">Nombre y apellidos</label><input id="nombre" autocomplete="name"></div>
-      <div class="f"><label for="tel">Teléfono</label><input id="tel" type="tel" autocomplete="tel"></div>
-      <div class="f"><label for="email">Correo electrónico</label><input id="email" type="email" autocomplete="email"></div>
-      <div class="f"><label for="tipo">Tipo de inmueble</label><select id="tipo"><option>Edificio de viviendas</option><option>Urbanización</option><option>Garaje / aparcamiento</option><option>Edificio mixto con locales</option><option>Vivienda particular</option><option>Otro</option></select></div>
-      <div class="f"><label for="props">Nº de propiedades</label><input id="props" type="number" min="1" inputmode="numeric"></div>
-      <div class="f"><label for="zona">Dirección o zona</label><input id="zona"></div>
-      <div class="f full"><label for="msg">Mensaje</label><textarea id="msg" rows="4"></textarea></div>
-      <label class="chk"><input type="checkbox" id="priv"> He leído y acepto la política de privacidad.</label>
-      <button class="btn btn-lamp" type="submit">Enviar solicitud</button>
-      <div class="ok" id="ok" hidden></div>
-      <p class="rgpd">Responsable: ALF Administración de Fincas (NIF B27621564). Finalidad: atender su consulta y preparar una propuesta. Legitimación: consentimiento y medidas precontractuales. No se ceden datos salvo obligación legal. Derechos en recepcion@alfmallorca.com.</p>
+    <aside class="visado" aria-label="Colegiación">
+      <div class="stamp" aria-hidden="true">
+        <span class="mono">Visado</span>
+        <b>Administrador de fincas colegiado</b>
+        <span class="mono">CAF Baleares · Nº [por confirmar]</span>
+      </div>
+      <h3>Colegio Oficial de Administradores de Fincas de Baleares</h3>
+      <p>Somos administradores de fincas colegiados. La colegiación supone formación continua, seguro de responsabilidad civil profesional y un código deontológico al que respondemos.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- PLANO 06 · CONTACTO -->
+<section class="lam" id="contacto" data-n="06" data-name="Contacto" aria-labelledby="h-con">
+  <div class="wrap con-grid">
+    <div class="con-l">
+      <p class="mono tag"><span>06</span>Contacto · Planta baja</p>
+      <h2 id="h-con" class="h2">La puerta de la oficina está abierta.</h2>
+      <table class="cajetin cajetin-big">
+        <tr><th scope="row" class="mono">Teléfono</th><td><span class="big">971 75 94 53</span><button type="button" class="copy mono" data-copy="971759453">Copiar</button></td></tr>
+        <tr><th scope="row" class="mono">Correo</th><td><span class="big big-s">recepcion@alfmallorca.com</span><button type="button" class="copy mono" data-copy="recepcion@alfmallorca.com">Copiar</button></td></tr>
+        <tr><th scope="row" class="mono">Oficina</th><td><span class="big big-s">C/ Sant Josep de la Muntanya, 15<br>07010 Palma</span><a class="copy mono" href="https://www.google.com/maps/search/?api=1&amp;query=Carrer+de+Sant+Josep+de+la+Muntanya+15+Palma" target="_blank" rel="noopener">Ver mapa ↗</a></td></tr>
+        <tr><th scope="row" class="mono">Horario</th><td><span class="big big-s">[Por confirmar]</span></td></tr>
+      </table>
+    </div>
+    <form class="form" id="form" novalidate>
+      <fieldset class="seg seg-light">
+        <legend class="mono">Motivo</legend>
+        <label><input type="radio" name="motivo" value="Estudio de gastos sin coste" checked><span>Estudio de gastos</span></label>
+        <label><input type="radio" name="motivo" value="Cambiar de administrador"><span>Cambio de administrador</span></label>
+        <label><input type="radio" name="motivo" value="Aviso de avería"><span>Avería</span></label>
+        <label><input type="radio" name="motivo" value="Compraventa o alquiler"><span>Inmobiliaria</span></label>
+      </fieldset>
+      <div class="fields">
+        <div class="fld"><label for="f-nom">Nombre y apellidos</label><input id="f-nom" autocomplete="name" required></div>
+        <div class="fld"><label for="f-tel">Teléfono</label><input id="f-tel" type="tel" autocomplete="tel" required></div>
+        <div class="fld"><label for="f-mail">Correo electrónico</label><input id="f-mail" type="email" autocomplete="email"></div>
+        <div class="fld"><label for="f-dir">Dirección o zona de la finca</label><input id="f-dir"></div>
+        <div class="fld fld-full"><label for="f-msg">Mensaje</label><textarea id="f-msg" rows="4"></textarea></div>
+      </div>
+      <label class="chk"><input type="checkbox" id="f-ok" required> He leído la información sobre protección de datos.</label>
+      <button class="btn btn-pri" type="submit">Preparar mensaje <span class="arr" aria-hidden="true">→</span></button>
+      <p class="fmsg" id="fmsg" role="status"></p>
+      <div class="fout" id="fout" hidden><pre id="foutTxt"></pre><button type="button" class="copy mono" id="foutCopy">Copiar mensaje</button></div>
+      <p class="note">Este formulario todavía no envía nada: prepara el texto para que lo mande a recepcion@alfmallorca.com. Al publicar la web se conecta a un servicio de envío.</p>
+      <p class="rgpd"><b>Protección de datos.</b> Responsable: ALF Administración de Fincas (NIF B27621564). Finalidad: responder a su consulta y, en su caso, preparar una propuesta. Legitimación: su consentimiento y medidas precontractuales. No se ceden datos a terceros salvo obligación legal. Derechos en recepcion@alfmallorca.com.</p>
     </form>
   </div>
 </section>
 </main>
 
-<footer>
-  <div class="wrap fgrid">
-    <div>
-      <a class="logo" href="#inicio"><svg viewBox="0 0 200 200" aria-hidden="true"><use href="#alf"/></svg><span><b>A.L.F.</b><small>Administración de Fincas</small></span></a>
-      <p>Gestión integral de comunidades de propietarios, intermediación inmobiliaria y servicios relativos a la propiedad en Palma y Mallorca.</p>
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="scale" aria-hidden="true"><span></span><span></span><span></span><span></span><i class="mono">0</i><i class="mono">1</i><i class="mono">2</i><i class="mono">5</i><i class="mono">10 m</i></div>
+    <div class="foot-row mono">
+      <span>© 2026 ALF Administración de Fincas · NIF B27621564</span>
+      <span>C/ Sant Josep de la Muntanya, 15 · 07010 Palma · 971 75 94 53</span>
+      <span>Aviso legal · Privacidad · Cookies</span>
     </div>
-    <div><h4>Servicios</h4><ul><li><a href="#servicios">Cuentas y juntas</a></li><li><a href="#averias">Averías</a></li><li><a href="#servicios">Obras e ITE</a></li><li><a href="#inmobiliaria">Inmobiliaria</a></li><li><a href="#cambio">Cambiar de administrador</a></li></ul></div>
-    <div><h4>Oficina</h4><ul><li>C/ Sant Josep de la Muntanya, 15</li><li>07010 Palma (Illes Balears)</li><li>recepcion@alfmallorca.com</li><li>971 75 94 53</li></ul></div>
-    <div><h4>Colegiado</h4><p>Administrador de fincas colegiado en el Colegio Oficial de Administradores de Fincas de Baleares.</p>
-      <div class="badge"><img src="colegiado.png" alt="Administrador de Fincas Colegiado" onerror="this.remove()"><div class="fallback">Administrador de Fincas Colegiado<em>CAF BALEARES</em></div></div></div>
   </div>
-  <div class="wrap legal"><span>© 2026 ALF Administración de Fincas · NIF B27621564</span><span>Aviso legal · Privacidad · Cookies</span></div>
 </footer>
 
-<style>.badge:has(img) .fallback{display:none}</style>
+<script>(function(){
+"use strict";
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $=function(s,c){return (c||document).querySelector(s)},$$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
 
-<script>
-(function(){
-  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  // Menú
-  var mb=document.getElementById('mbtn'),nav=document.getElementById('nav');
-  mb.onclick=function(){var o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o)};
-  nav.querySelectorAll('a').forEach(function(a){a.onclick=function(){nav.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
-  document.querySelectorAll('[data-motivo]').forEach(function(b){b.addEventListener('click',function(){document.getElementById('motivo').value=b.dataset.motivo})});
+/* ---- Edificio: selección de planta ---- */
+var bld=$('#bld'),floors=$$('.fl',bld),levels=$$('.lv',bld),items=$$('#flist li');
+var LIFT=58;
+function select(i,focusRow){
+  floors.forEach(function(f){var k=+f.dataset.i;f.classList.toggle('sel',k===i);f.style.transform=k>i?'translateY(-'+LIFT+'px)':''});
+  levels.forEach(function(l){var k=+l.dataset.i;l.classList.toggle('sel',k===i);l.style.transform=k>i?'translateY(-'+LIFT+'px)':''});
+  items.forEach(function(li){var on=+li.dataset.i===i;li.classList.toggle('sel',on);li.querySelector('.frow').setAttribute('aria-expanded',on)});
+  if(focusRow){var r=$('#flist li[data-i="'+i+'"] .frow');r&&r.focus({preventScroll:true})}
+}
+items.forEach(function(li){li.querySelector('.frow').addEventListener('click',function(){select(+li.dataset.i)})});
+floors.forEach(function(f){
+  f.addEventListener('click',function(){select(+f.dataset.i)});
+  f.addEventListener('mouseenter',function(){f.classList.add('hov')});
+  f.addEventListener('mouseleave',function(){f.classList.remove('hov')});
+});
+$('#flist').addEventListener('keydown',function(e){
+  if(e.key!=='ArrowDown'&&e.key!=='ArrowUp')return;
+  var cur=$$('#flist .frow').indexOf(document.activeElement);if(cur<0)return;e.preventDefault();
+  var rows=$$('#flist .frow'),n=Math.max(0,Math.min(rows.length-1,cur+(e.key==='ArrowDown'?1:-1)));rows[n].focus();
+});
+select(2);
+if(!reduce){bld.classList.add('intro');setTimeout(function(){bld.classList.remove('intro')},2200)}
 
-  // Mosaico de rombos (baldosa hidráulica)
-  var mos=document.getElementById('mosaic'),
-      pat='o l b l b o l d w d i l b w h h d b l i h h w l b d i w d l o l b l b o'.split(' '),
-      vars=['b','d','l','a','o','i','w'];
-  pat.forEach(function(c){var t=document.createElement('div');t.className='tile-r '+c;mos.appendChild(t)});
-  if(!reduce){var ts=[].filter.call(mos.children,function(t){return !t.classList.contains('h')});
-    setInterval(function(){var t=ts[Math.floor(Math.random()*ts.length)];t.className='tile-r '+vars[Math.floor(Math.random()*vars.length)]},1600)}
+/* ---- Barra, lámina actual e índice ---- */
+var bar=$('#bar');addEventListener('scroll',function(){bar.classList.toggle('on',scrollY>10)},{passive:true});
+var idxBtn=$('#idxBtn'),idx=$('#idx');
+idxBtn.addEventListener('click',function(){var o=idx.classList.toggle('open');idxBtn.setAttribute('aria-expanded',o)});
+$$('#idx a').forEach(function(a){a.addEventListener('click',function(){idx.classList.remove('open');idxBtn.setAttribute('aria-expanded','false')})});
+addEventListener('keydown',function(e){if(e.key==='Escape'&&idx.classList.contains('open')){idx.classList.remove('open');idxBtn.setAttribute('aria-expanded','false');idxBtn.focus()}});
+var lams=$$('.lam');
+function cur(){
+  var y=innerHeight*.35,best=lams[0];
+  lams.forEach(function(s){if(s.getBoundingClientRect().top<=y)best=s});
+  $('#sheetNo').textContent=best.dataset.n;$('#sheetName').textContent=best.dataset.name;
+  $$('#idx a').forEach(function(a){var on=a.dataset.n===best.dataset.n;a.classList.toggle('cur',on);if(on)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});
+}
+addEventListener('scroll',cur,{passive:true});cur();
 
-  // Panel de servicios
-  var S=[
-    ['Cuentas','Cuentas de la comunidad','Llevamos la economía de la comunidad con transparencia: cada propietario puede consultar las cuentas.',['Presupuesto anual y cierre de ingresos y gastos','Emisión y cobro de recibos','Pago a proveedores y conciliación bancaria','Control del fondo de reserva'],'LPH art. 20.c',[0,1,2,3,4,5,6,7,8,9,10,11]],
-    ['Juntas','Juntas y actas','Preparamos cada junta para que se decida con información y los acuerdos se cumplan.',['Convocatoria y orden del día','Asistencia y redacción del acta','Custodia del libro de actas','Notificación y ejecución de acuerdos'],'LPH arts. 16 y 19',[1,2,5,6,9,10]],
-    ['Averías','Averías y mantenimiento','Ascensores, limpieza, jardinería, piscinas, contra incendios, electricidad y otros oficios. Cada aviso se sigue hasta su cierre.',['Aviso atendido y proveedor asignado','Urgencias de agua, luz y ascensor de inmediato','Información al vecino en cada paso','Revisión de la factura antes de pagar'],'LPH art. 20.b',[6]],
-    ['Seguros','Seguros y siniestros','Trabajamos con las principales aseguradoras para que la póliza de la comunidad cubra lo que debe.',['Revisión de la póliza multirriesgo','Comparación de ofertas','Tramitación de siniestros hasta la reparación'],'Póliza multirriesgo',[3,4,7,8]],
-    ['Obras','Obras','Desde el primer presupuesto hasta la recepción de la obra, con la aprobación de la junta.',['Petición y comparación de presupuestos','Contratación tras el acuerdo de la junta','Control de la obra hasta su recepción'],'LPH arts. 10 y 17',[8,9,10,11]],
-    ['ITE y ayudas','ITE y ayudas','Ponemos el edificio al día y buscamos las ayudas disponibles.',['Inspección técnica del edificio','Certificado energético','Subvenciones a la rehabilitación y la eficiencia'],'ITE · Certificado energético',[0,3,4,7,8,11]],
-    ['Impagos','Gestión de impagos','Actuamos pronto para que la deuda no crezca y la comunidad no la soporte.',['Control mensual de recibos pendientes','Aviso y reclamación amistosa','Certificado de deuda para la vía judicial'],'LPH art. 21',[5]],
-    ['Jurídico','Asesoría jurídica','Respaldo legal para las decisiones y los conflictos de la comunidad.',['Procedimiento monitorio con abogados colaboradores','Certificados de deuda para compraventas','Consultas sobre la Ley de Propiedad Horizontal'],'Abogados colaboradores',[1,2,9,10]]
-  ];
-  var list=document.getElementById('svcList'), mini=document.getElementById('mini');
-  for(var m=0;m<12;m++){var mw=document.createElement('div');mw.className='win';mw.style.setProperty('--d',m);mini.appendChild(mw)}
-  var cap=document.createElement('p');cap.className='mini-cap';cap.textContent='Su edificio';mini.appendChild(cap);
-  S.forEach(function(s,i){var b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.id='tab'+i;b.setAttribute('aria-controls','svcPanel');b.innerHTML='<i>'+String(i+1).padStart(2,'0')+'</i>'+s[0];b.onclick=function(){show(i)};b.onkeydown=function(e){if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();show((i+1)%S.length,true)}if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();show((i+S.length-1)%S.length,true)}};list.appendChild(b)});
-  function show(i,focus){
-    var s=S[i];
-    list.querySelectorAll('button').forEach(function(b,j){b.setAttribute('aria-selected',j===i);b.tabIndex=j===i?0:-1});
-    if(focus)list.children[i].focus();
-    document.getElementById('svcPanel').setAttribute('aria-labelledby','tab'+i);
-    document.getElementById('sTitle').textContent=s[1];
-    document.getElementById('sDesc').textContent=s[2];
-    document.getElementById('sList').innerHTML=s[3].map(function(x){return '<li>'+x+'</li>'}).join('');
-    document.getElementById('sLaw').textContent=s[4];
-    mini.querySelectorAll('.win').forEach(function(w,j){w.classList.toggle('on',s[5].indexOf(j)>-1)});
-  }
-  show(0);
+/* ---- Calendario: marca del mes actual ---- */
+try{
+  var m=+new Intl.DateTimeFormat('es-ES',{timeZone:'Europe/Madrid',month:'numeric'}).format(new Date());
+  var cols=$$('.g-cols span');if(cols[m])cols[m].classList.add('now');
+}catch(e){}
 
-  // Calculadora
-  var mode='cambio', n=document.getElementById('n'), vb=document.getElementById('vbuild');
-  var notes={cambio:'Mayoría simple en primera convocatoria: más de la mitad de los propietarios, que además sumen más de la mitad de las cuotas. En segunda convocatoria basta la mayoría de los asistentes.',extra:'Puede pedirla la cuarta parte de los propietarios, o quienes representen el 25 % de las cuotas.',turistico:'Tres quintas partes del total de propietarios, que representen a su vez tres quintas partes de las cuotas.'};
-  function need(x){return mode==='cambio'?Math.floor(x/2)+1:mode==='extra'?Math.ceil(x/4):Math.ceil(x*3/5)}
-  function draw(){
-    var x=+n.value,k=need(x),cols=x<=12?4:x<=30?6:x<=48?8:10;
-    document.getElementById('nOut').textContent=x;
-    document.getElementById('k').textContent=k;
-    document.getElementById('kTxt').textContent='de '+x+' propietarios '+(mode==='extra'?'pueden pedirla':'deben votar a favor');
-    document.getElementById('vNote').textContent=notes[mode]+' Cálculo orientativo, con cuotas iguales.';
-    var rows=Math.ceil(x/cols),h='',idx=0;
-    for(var r=0;r<rows;r++){h+='<div class="floor" style="grid-template-columns:repeat('+cols+',1fr)">';for(var c=0;c<cols;c++){var real=(rows-1-r)*cols+c;h+=real<x?'<div class="win'+(real<k?' on':'')+'"></div>':'<div></div>'}h+='</div>'}
-    vb.innerHTML=h;
-  }
-  n.addEventListener('input',draw);
-  document.querySelectorAll('.modes button').forEach(function(b){b.onclick=function(){mode=b.dataset.mode;document.querySelectorAll('.modes button').forEach(function(y){y.setAttribute('aria-pressed',y===b)});draw()}});
-  draw();
+/* ---- Calculadora de mayorías ---- */
+var A=[
+  {l:'Cambiar de administrador',f:function(n){return Math.floor(n/2)+1},note:'Mayoría simple: más de la mitad de los propietarios, que además representen más de la mitad de las cuotas. En segunda convocatoria basta la mayoría de los asistentes.',law:'Art. 17.7 LPH'},
+  {l:'Pedir junta extraordinaria',f:function(n){return Math.ceil(n/4)},note:'La cuarta parte de los propietarios, o los que representen al menos el 25 % de las cuotas, pueden pedir que se convoque.',law:'Art. 16.1 LPH'},
+  {l:'Limitar pisos turísticos',f:function(n){return Math.ceil(n*3/5)},note:'Tres quintas partes del total de propietarios, que a su vez representen tres quintas partes de las cuotas.',law:'Art. 17.12 LPH'},
+  {l:'Placas solares comunitarias',f:function(n){return Math.ceil(n/3)},note:'Un tercio de los propietarios que representen un tercio de las cuotas, para instalar sistemas comunes de energías renovables.',law:'Art. 17.1 LPH'},
+  {l:'Modificar los estatutos',f:function(n){return n},note:'Unanimidad: cualquier cambio del título constitutivo o de los estatutos necesita el voto de todos los propietarios.',law:'Art. 17.6 LPH'}
+];
+var sel=A[0],seg=$('#acuerdos'),range=$('#owners'),dots=$('#dots');
+A.forEach(function(a,i){var b=document.createElement('button');b.type='button';b.textContent=a.l;b.setAttribute('aria-pressed',i===0);b.addEventListener('click',function(){sel=a;$$('button',seg).forEach(function(x){x.setAttribute('aria-pressed',x===b)});calc()});seg.appendChild(b)});
+var shown=13,raf;
+function calc(){
+  var n=+range.value,need=sel.f(n),pct=need/n*100;
+  $('#ownersOut').textContent=n;$('#tot').textContent=n;$('#mayNote').textContent=sel.note;$('#mayLaw').textContent=sel.law;
+  $('#meterFill').style.width=pct+'%';$('#meterCota').style.width=pct+'%';
+  var t=$('#meterTxt');t.textContent=need+' / '+n;t.style.left='min(calc('+pct+'% - '+(pct>60?'64px':'0px')+'), calc(100% - 64px))';
+  if(dots.children.length!==n){dots.innerHTML='';for(var i=0;i<n;i++)dots.appendChild(document.createElement('i'))}
+  $$('i',dots).forEach(function(d,i){d.classList.toggle('on',i<need)});
+  var el=$('#need'),from=shown,start=performance.now();cancelAnimationFrame(raf);
+  if(reduce){el.textContent=need}else{(function step(t){var p=Math.min(1,(t-start)/380);el.textContent=Math.round(from+(need-from)*(1-Math.pow(1-p,3)));if(p<1)raf=requestAnimationFrame(step)})(start)}
+  shown=need;
+}
+range.addEventListener('input',calc);calc();
 
-  // Guía
-  var rail=document.getElementById('rail');
-  document.getElementById('next').onclick=function(){rail.scrollBy({left:320,behavior:reduce?'auto':'smooth'})};
-  document.getElementById('prev').onclick=function(){rail.scrollBy({left:-320,behavior:reduce?'auto':'smooth'})};
-
-  // Copiar
-  function copy(t,btn){var o=btn.textContent,done=function(){btn.textContent='Copiado';setTimeout(function(){btn.textContent=o},1500)};try{navigator.clipboard.writeText(t).then(done,function(){sel(btn)})}catch(e){sel(btn)}}
-  function sel(btn){var s=btn.previousElementSibling;if(!s)return;var r=document.createRange();r.selectNodeContents(s);var g=getSelection();g.removeAllRanges();g.addRange(r)}
-  document.querySelectorAll('.copy[data-copy]').forEach(function(b){b.onclick=function(){copy(b.dataset.copy,b)}});
-
-  // Formulario
-  var form=document.getElementById('form'),ok=document.getElementById('ok');
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var v=function(id){return document.getElementById(id).value.trim()};
-    var miss=[];if(!v('nombre'))miss.push('nombre');if(!v('tel'))miss.push('teléfono');if(!v('email'))miss.push('correo');if(!document.getElementById('priv').checked)miss.push('aceptar la privacidad');
-    ok.hidden=false;
-    if(miss.length){ok.style.borderColor='var(--lamp)';ok.textContent='Falta completar: '+miss.join(', ')+'.';return}
-    ok.style.borderColor='';
-    var t='Motivo: '+v('motivo')+'\nNombre: '+v('nombre')+'\nTeléfono: '+v('tel')+'\nCorreo: '+v('email')+'\nInmueble: '+v('tipo')+' · '+(v('props')||'—')+' propiedades\nZona: '+(v('zona')||'—')+'\n\n'+(v('msg')||'');
-    ok.innerHTML='<b>Solicitud preparada.</b> Envíela a recepcion@alfmallorca.com o llame al 971 75 94 53.<pre></pre><button type="button" class="copy">Copiar solicitud</button>';
-    ok.querySelector('pre').textContent=t;
-    ok.querySelector('button').onclick=function(){copy(t,this)};
-  });
+/* ---- Contacto ---- */
+function copyText(t,btn){
+  var o=btn.textContent,done=function(){btn.textContent='Copiado';setTimeout(function(){btn.textContent=o},1600)};
+  var fb=function(){var s=document.createElement('span');s.textContent=t;document.body.appendChild(s);var r=document.createRange();r.selectNodeContents(s);var g=getSelection();g.removeAllRanges();g.addRange(r);try{document.execCommand('copy');done()}catch(e){btn.textContent='Seleccione y copie'}setTimeout(function(){s.remove()},60)};
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(done,fb);else fb();
+}
+$$('[data-copy]').forEach(function(b){b.addEventListener('click',function(){copyText(b.dataset.copy,b)})});
+$$('[data-motivo]').forEach(function(a){a.addEventListener('click',function(){var r=$('input[name=motivo][value="'+a.dataset.motivo+'"]');if(r)r.checked=true})});
+var form=$('#form'),msg=$('#fmsg');
+form.addEventListener('submit',function(e){
+  e.preventDefault();msg.classList.remove('ok');
+  var req=[$('#f-nom'),$('#f-tel')],bad=false;
+  req.forEach(function(i){var b=!i.value.trim();i.setAttribute('aria-invalid',b);if(b)bad=true});
+  if(bad){msg.textContent='Indique su nombre y un teléfono para que podamos llamarle.';(req[0].value.trim()?req[1]:req[0]).focus();return}
+  if(!$('#f-ok').checked){msg.textContent='Marque la casilla de protección de datos para continuar.';return}
+  var v=function(id){return $(id).value.trim()||'—'};
+  var txt='Motivo: '+$('input[name=motivo]:checked').value+'\nNombre: '+v('#f-nom')+'\nTeléfono: '+v('#f-tel')+'\nCorreo: '+v('#f-mail')+'\nFinca: '+v('#f-dir')+'\n\n'+($('#f-msg').value.trim()||'');
+  $('#foutTxt').textContent=txt;$('#fout').hidden=false;msg.classList.add('ok');
+  msg.textContent='Mensaje preparado. Cópielo y envíelo a recepcion@alfmallorca.com, o llámenos al 971 75 94 53.';
+  $('#foutCopy').onclick=function(){copyText(txt,this)};
+});
 })();
 </script>
-
 </body>
 </html>
